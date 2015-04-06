@@ -39,7 +39,7 @@ var navigator = window.navigator;
       fd.append('data', e);
       $.ajax({
           type: 'POST',
-          url: '/processwav',
+          url: '/tracks',
           data: fd,
           processData: false,
           contentType: false

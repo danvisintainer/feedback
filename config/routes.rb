@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root 'tracks#new'
 
-  post '/create', to: 'tracks#create'
+  get '/showall', to: 'tracks#show_all'
+
+  # post '/create', to: 'tracks#create'
+
+  resources :tracks
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

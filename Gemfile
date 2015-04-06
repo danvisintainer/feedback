@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 gem 'figaro'
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '< 2.0'
 gem 'gon'
 gem "paperclip", "~> 4.2"
 # Use SCSS for stylesheets
