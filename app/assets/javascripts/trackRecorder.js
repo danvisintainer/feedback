@@ -42,7 +42,11 @@ var navigator = window.navigator;
           url: '/tracks',
           data: fd,
           processData: false,
-          contentType: false
+          contentType: false,
+          success: function(response){
+            $("body").append(response)
+          }
+
       });
 
     });
