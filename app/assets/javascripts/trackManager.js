@@ -1,29 +1,30 @@
 $(document).ready(function(){
   $("#all-tracks").on('click', '.play', function(e){
-    
+    debugger;
+    var music = $(this).parent().parent().find(".music")[0];
+    var pButton = this;
+    play(music, pButton);
 
     e.stopPropagation();
-    debugger;
   });
 });
 
 //Play and Pause
-
-// function play() {
-//   debugger;
-//   // start music
-//   if (music.paused) {
-//     music.play();
-//     // remove play, add pause
-//     pButton.className = "";
-//     pButton.className = "pause";
-//   } else { // pause music
-//     music.pause();
-//     // remove pause, add play
-//     pButton.className = "";
-//     pButton.className = "play";
-//   }
-// }
+function play(music, pButton) {
+  debugger;
+  // start music
+  if (music.paused) {
+    music.play();
+    // remove play, add pause
+    pButton.className = "";
+    pButton.className = "pause";
+  } else { // pause music
+    music.pause();
+    // remove pause, add play
+    pButton.className = "";
+    pButton.className = "play";
+  }
+}
 
   // var music = document.getElementById('music'); // id for audio element
   // var duration; // Duration of audio clip
