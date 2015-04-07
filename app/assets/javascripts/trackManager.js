@@ -46,9 +46,22 @@ $(document).ready(function(){
     var duration;
     
     music.addEventListener("canplaythrough", function () {
-      duration = music.duration;  
+      duration = music.duration;
+      console.log("duration is " + duration) ; 
     }, false);
-    music.addEventListener("timeupdate", timeUpdate(music, pButton, timelineWidth, duration, playhead), false);
+
+    music.addEventListener("timeupdate", function() {
+      var playPercent = timelineWidth * (music.currentTime / duration);
+      playhead.style.marginLeft = playPercent + "px";
+      console.log("Checking with timeUpdate()");
+      if (music.currentTime === duration) {
+        pButton.className = "";
+        pButton.className = "play";
+        console.log("Resetting a button to play!");
+      } else {
+        console.log("Song not yet at finish.");
+      }
+    }, false);
   });
 
 });
@@ -77,14 +90,18 @@ function play(music, pButton) {
 }
 
 // Update music scrubber position as the song plays
-function timeUpdate(music, pButton, timelineWidth, duration, playhead) {
-  var playPercent = timelineWidth * (music.currentTime / duration);
-  playhead.style.marginLeft = playPercent + "px";
-  if (music.currentTime == duration) {
-    pButton.className = "";
-    pButton.className = "play";
-  }
-}
+// function timeUpdate(music, pButton, timelineWidth, duration, playhead) {
+//   var playPercent = timelineWidth * (music.currentTime / duration);
+//   playhead.style.marginLeft = playPercent + "px";
+//   console.log("Checking with timeUpdate()")
+//   if (music.currentTime === duration) {
+//     pButton.className = "";
+//     pButton.className = "play";
+//     console.log("Resetting a button to play!");
+//   } else {
+//     console.log("Song not yet at finish.");
+//   }
+// }
 
 // timeupdate event listener
 // music.addEventListener("timeupdate", timeUpdate, false);
