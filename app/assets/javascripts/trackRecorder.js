@@ -43,10 +43,7 @@ var navigator = window.navigator;
           data: fd,
           processData: false,
           contentType: false,
-          success: function(response){
-            $("body").append(response)
-          }
-
+          dataType: "script"
       });
 
     });
