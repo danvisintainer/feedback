@@ -35,6 +35,7 @@ $(document).ready(function(){
 
   $('#all-tracks').on('DOMNodeInserted', function(e){
     // debugger;
+    console.log("Creating new player.");
     currentDiv = $(this).children().last();
     music = currentDiv.find(".music")[0];
     pButton = currentDiv.find(".play")[0];
@@ -43,23 +44,22 @@ $(document).ready(function(){
     // timeline width adjusted for playhead
     var playhead = currentDiv.find('.playhead')[0]; // playhead
     var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
-    var duration;
+    // var duration;
     
-    music.addEventListener("canplaythrough", function () {
-      duration = music.duration;
-      console.log("duration is " + duration) ; 
-    }, false);
+    // music.addEventListener("canplaythrough", function () {
+    //   duration = music.duration;
+    //   // console.log("duration is " + duration) ; 
+    // }, false);
 
     music.addEventListener("timeupdate", function() {
-      var playPercent = timelineWidth * (music.currentTime / duration);
+      var playPercent = timelineWidth * (music.currentTime / music.duration);
       playhead.style.marginLeft = playPercent + "px";
-      console.log("Checking with timeUpdate()");
-      if (music.currentTime === duration) {
+      // console.log("Checking with timeUpdate()");
+      console.log("Checking if " + music.currentTime + " = " + music.duration);
+      if (music.currentTime === music.duration) {
         pButton.className = "";
         pButton.className = "play";
-        console.log("Resetting a button to play!");
-      } else {
-        console.log("Song not yet at finish.");
+        console.log("Song finished!");
       }
     }, false);
   });
@@ -70,6 +70,9 @@ function playAll() {
   $.each($('.play'), function(i, v) {
     v.click();
   });
+}
+
+function dynamicallyCreateEventListener(music, pButton, timeline, playhead, timelineWidth){
 
 }
 
