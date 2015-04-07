@@ -1,5 +1,22 @@
 $("body").append("<%= j render 'track' %>")
 
+
+//Play and Pause
+function play() {
+  // start music
+  if (music.paused) {
+    music.play();
+    // remove play, add pause
+    pButton.className = "";
+    pButton.className = "pause";
+  } else { // pause music
+    music.pause();
+    // remove pause, add play
+    pButton.className = "";
+    pButton.className = "play";
+  }
+}
+
   // var music = document.getElementById('music'); // id for audio element
   // var duration; // Duration of audio clip
   // var pButton = document.getElementById('pButton'); // play button

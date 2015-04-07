@@ -21,26 +21,39 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 
-  #audioplayer{
+.audioplayer{
   width: 480px;
   height: 60px;
   margin: 50px auto auto auto;
 border: solid;
 }
 
-#pButton{
-    height:60px; 
-    width: 60px;
-    border: none;
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    float:left;
-    outline:none;
+.pButton {
 }
 
-.play{background: url('http://www.alexkatz.me/codepen/images/play.png') ;}
-.pause{background: url('http://www.alexkatz.me/codepen/images/pause.png') ;}
+.play {
+  height:60px; 
+  width: 60px;
+  border: none;
+  background: url('http://www.alexkatz.me/codepen/images/play.png');
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float:left;
+  outline:none;
+  }
+
+.pause {
+  height:60px; 
+  width: 60px;
+  border: none;
+  background: url('http://www.alexkatz.me/codepen/images/pause.png');
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  float:left;
+  outline:none;
+}
 
 #timeline{
   width: 400px;
