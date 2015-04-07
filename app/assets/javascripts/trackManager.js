@@ -5,6 +5,13 @@ $(document).ready(function(){
 
     e.stopPropagation();
   });
+
+  $("#all-tracks").on('click', '.pause', function(e){
+    var music = $(this).parent().parent().find(".music")[0];
+    play(music, this);
+
+    e.stopPropagation();
+  });
 });
 
 function playAll() {
