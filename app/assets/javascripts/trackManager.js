@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+  $("#record-btn").on('click', function(e){
+    playAll();
+    e.stopPropagation();
+  });
+
   $("#all-tracks").on('click', '.play', function(e){
     var music = $(this).parent().parent().find(".music")[0];
     play(music, this);
