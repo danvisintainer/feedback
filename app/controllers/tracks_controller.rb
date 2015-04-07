@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
   def create
     @track = Track.create(audio: params["data"])
-      redirect_to track_path(@track)
+    redirect_to track_path(@track)
   end
 
   def new
