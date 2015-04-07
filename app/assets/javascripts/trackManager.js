@@ -8,12 +8,14 @@ $(document).ready(function(){
 });
 
 function playAll() {
-  debugger;
+  $.each($('.play'), function(i, v) {
+    v.click();
+  });
+
 }
 
 //Play and Pause
 function play(music, pButton) {
-  debugger;
   // start music
   if (music.paused) {
     music.play();
