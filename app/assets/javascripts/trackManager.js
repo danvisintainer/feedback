@@ -7,6 +7,10 @@ $(document).ready(function(){
   });
 });
 
+function playAll() {
+  debugger;
+}
+
 //Play and Pause
 function play(music, pButton) {
   debugger;
