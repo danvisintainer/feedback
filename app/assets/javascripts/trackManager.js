@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   $("#recorderStart").on('click', function(e) {
     recorderStart();
+    playAll();
     e.stopPropagation();
   });
 
