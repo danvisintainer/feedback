@@ -1,9 +1,7 @@
 $(document).ready(function(){
   $("#all-tracks").on('click', '.play', function(e){
-    debugger;
     var music = $(this).parent().parent().find(".music")[0];
-    var pButton = this;
-    play(music, pButton);
+    play(music, this);
 
     e.stopPropagation();
   });
