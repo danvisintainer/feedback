@@ -55,7 +55,7 @@ border: solid;
   outline:none;
 }
 
-#timeline{
+.timeline{
   width: 400px;
   height: 20px;
   margin-top: 20px;
@@ -64,7 +64,8 @@ border: solid;
   background: rgba(0,0,0,.3);
   
 }
-#playhead{
+
+.playhead{
   width: 18px;
   height: 18px;
   border-radius: 50%;
