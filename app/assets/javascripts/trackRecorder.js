@@ -13,7 +13,7 @@ var navigator = window.navigator;
     navigator.msGetUserMedia
   );
 
-  function record() {
+  function recorderStart() {
     navigator.getUserMedia({audio: true}, function(localMediaStream){
       mediaStream = localMediaStream;
       var mediaStreamSource = context.createMediaStreamSource(localMediaStream);
@@ -27,7 +27,7 @@ var navigator = window.navigator;
     });
   }
 
-  function stop() {
+  function recorderStop() {
     mediaStream.stop();
     rec.stop();
 
