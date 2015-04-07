@@ -44,6 +44,8 @@ $(document).ready(function(){
     // timeline width adjusted for playhead
     var playhead = currentDiv.find('.playhead')[0]; // playhead
     var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
+    dynamicallyCreateEventListener(music, pButton, timeline, playhead, timelineWidth);
     // var duration;
     
     // music.addEventListener("canplaythrough", function () {
@@ -51,17 +53,7 @@ $(document).ready(function(){
     //   // console.log("duration is " + duration) ; 
     // }, false);
 
-    music.addEventListener("timeupdate", function() {
-      var playPercent = timelineWidth * (music.currentTime / music.duration);
-      playhead.style.marginLeft = playPercent + "px";
-      // console.log("Checking with timeUpdate()");
-      console.log("Checking if " + music.currentTime + " = " + music.duration);
-      if (music.currentTime === music.duration) {
-        pButton.className = "";
-        pButton.className = "play";
-        console.log("Song finished!");
-      }
-    }, false);
+    
   });
 
 });
@@ -73,7 +65,17 @@ function playAll() {
 }
 
 function dynamicallyCreateEventListener(music, pButton, timeline, playhead, timelineWidth){
-
+  music.addEventListener("timeupdate", function() {
+      var playPercent = timelineWidth * (music.currentTime / music.duration);
+      playhead.style.marginLeft = playPercent + "px";
+      // console.log("Checking with timeUpdate()");
+      console.log("Checking if " + music.currentTime + " = " + music.duration);
+      if (music.currentTime === music.duration) {
+        pButton.className = "";
+        pButton.className = "play";
+        console.log("Song finished!");
+      }
+    }, false);
 }
 
 // Play and Pause
