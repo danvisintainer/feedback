@@ -28,6 +28,29 @@ $(document).ready(function(){
 
     e.stopPropagation();
   });
+
+  $("#dataTable tbody").on( "click", "tr", function() {
+    debugger;
+  });
+
+  $('#all-tracks').on('DOMNodeInserted', function(e){
+    // debugger;
+    currentDiv = $(this).children().last();
+    music = currentDiv.find(".music")[0];
+    pButton = currentDiv.find(".play")[0];
+
+    var timeline = currentDiv.find('.timeline')[0]; // timeline
+    // timeline width adjusted for playhead
+    var playhead = currentDiv.find('.playhead')[0]; // playhead
+    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+    var duration;
+    
+    music.addEventListener("canplaythrough", function () {
+      duration = music.duration;  
+    }, false);
+    music.addEventListener("timeupdate", timeUpdate(music, pButton, timelineWidth, duration, playhead), false);
+  });
+
 });
 
 function playAll() {
@@ -37,7 +60,7 @@ function playAll() {
 
 }
 
-//Play and Pause
+// Play and Pause
 function play(music, pButton) {
   // start music
   if (music.paused) {
@@ -53,18 +76,33 @@ function play(music, pButton) {
   }
 }
 
+// Update music scrubber position as the song plays
+function timeUpdate(music, pButton, timelineWidth, duration, playhead) {
+  var playPercent = timelineWidth * (music.currentTime / duration);
+  playhead.style.marginLeft = playPercent + "px";
+  if (music.currentTime == duration) {
+    pButton.className = "";
+    pButton.className = "play";
+  }
+}
+
+// timeupdate event listener
+// music.addEventListener("timeupdate", timeUpdate, false);
+
+// Gets audio file duration
+// music.addEventListener("canplaythrough", function () {
+//   duration = music.duration;  
+// }, false);
+
   // var music = document.getElementById('music'); // id for audio element
   // var duration; // Duration of audio clip
   // var pButton = document.getElementById('pButton'); // play button
 
   // var playhead = document.getElementById('playhead'); // playhead
 
-  // var timeline = document.getElementById('timeline'); // timeline
-  // // timeline width adjusted for playhead
-  // var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
 
-  // // timeupdate event listener
-  // music.addEventListener("timeupdate", timeUpdate, false);
+
+
 
   // //Makes timeline clickable
   // timeline.addEventListener("click", function (event) {
@@ -116,16 +154,6 @@ function play(music, pButton) {
   //   }
   // }
 
-  // // timeUpdate 
-  // // Synchronizes playhead position with current point in audio 
-  // function timeUpdate() {
-  //   var playPercent = timelineWidth * (music.currentTime / duration);
-  //   playhead.style.marginLeft = playPercent + "px";
-  //   if (music.currentTime == duration) {
-  //     pButton.className = "";
-  //     pButton.className = "play";
-  //   }
-  // }
 
   // //Play and Pause
   // function play() {
@@ -143,7 +171,3 @@ function play(music, pButton) {
   //   }
   // }
 
-  // // Gets audio file duration
-  // music.addEventListener("canplaythrough", function () {
-  //   duration = music.duration;  
-  // }, false);
