@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'tracks#new'
 
   get '/showall', to: 'tracks#show_all'
+  get '/test', to: 'tracks#test'
 
   # post '/create', to: 'tracks#create'
 

@@ -11,6 +11,10 @@ class TracksController < ApplicationController
 
   end
 
+  def test
+    
+  end
+
   def show
     @track = Track.find(params[:id])
     # render layout: false
