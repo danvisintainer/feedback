@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   root 'tracks#new'
 
-  get '/showall', to: 'tracks#show_all'
-  get '/test', to: 'tracks#test'
-
   # post '/create', to: 'tracks#create'
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
   resources :tracks
+  resources :projects
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
