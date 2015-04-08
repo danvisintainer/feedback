@@ -3,6 +3,8 @@ $(document).ready(function(){
   // add event listener to all players
   givePlayersListeners();
 
+  showMicVisualizer();
+
   // delete tracks by ID from track button
   $("#all-tracks").on('click', '.track-delete-btn', function(e) {
     e.preventDefault();
@@ -116,7 +118,6 @@ function play(music, pButton) {
 
 function givePlayersListeners() {
   $("div[id^=audio-and-player]").each(function(i, v) {
-    console.log("Creating new player.");
     currentDiv = $(this);
     music = currentDiv.find(".music")[0];
     pButton = currentDiv.find(".play")[0];
@@ -128,6 +129,27 @@ function givePlayersListeners() {
 
     dynamicallyCreateEventListener(music, pButton, timeline, playhead, timelineWidth);
   });
+}
+
+function showMicVisualizer() {
+  var wavesurfer = Object.create(WaveSurfer);
+
+  wavesurfer.init({
+    container     : '#mic-visualizer',
+    waveColor     : 'black',
+    interact      : false,
+    cursorWidth   : 0,
+    pixelRatio    : 1
+  });
+
+  var microphone = Object.create(WaveSurfer.Microphone);
+
+  microphone.init({
+      wavesurfer: wavesurfer
+  });
+  
+  
+  microphone.start();
 }
 
 // Update music scrubber position as the song plays
