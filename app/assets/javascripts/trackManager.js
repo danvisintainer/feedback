@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+  // add event listener to all players
+  givePlayersListeners();
+
   $("#recorderStart").on('click', function(e) {
     recorderStart();
     playAll();
@@ -93,6 +96,22 @@ function play(music, pButton) {
     pButton.className = "";
     pButton.className = "play";
   }
+}
+
+function givePlayersListeners() {
+  $("div[id^=audio-and-player]").each(function(i, v) {
+    console.log("Creating new player.");
+    currentDiv = $(this);
+    music = currentDiv.find(".music")[0];
+    pButton = currentDiv.find(".play")[0];
+
+    var timeline = currentDiv.find('.timeline')[0]; // timeline
+    // timeline width adjusted for playhead
+    var playhead = currentDiv.find('.playhead')[0]; // playhead
+    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
+    dynamicallyCreateEventListener(music, pButton, timeline, playhead, timelineWidth);
+  });
 }
 
 // Update music scrubber position as the song plays
