@@ -1,8 +1,8 @@
-<div id="audio-and-player-<%= @track.id %>">
-  <audio id="music-<%= @track.id %>" class="music" preload="true">
-    <source src="<%= @track.audio.url %>" type="audio/wav">
+<div id="audio-and-player-<%= track.id %>">
+  <audio id="music-<%= track.id %>" class="music" preload="true">
+    <source src="<%= track.audio.url %>" type="audio/wav">
     </audio>
-  <div id="audioplayer-<%= @track.id %>" class="audioplayer">
+  <div id="audioplayer-<%= track.id %>" class="audioplayer">
     <button class="play"></button>
     <div class="timeline">    
       <div class="playhead"></div>

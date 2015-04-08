@@ -12,5 +12,6 @@
 <button id="playAll">Play All!</button>
 
 <div id="all-tracks">
-  <%= render '/projects/track.html.erb' %>
+
+  <%= render partial: "tracks/track", collection: @tracks %>
 </div>
