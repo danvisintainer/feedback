@@ -9,6 +9,10 @@ class ProjectsController < ApplicationController
     redirect_to "/projects/#{@project.id}"
   end
 
+  def index
+    @projects = Project.all
+  end
+
   def show
     @project = Project.find(params[:id])
     @project_id = @project.id
