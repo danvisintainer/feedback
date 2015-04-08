@@ -9,8 +9,6 @@
     </div>
   </div>
 
-<% form_tag (track_path, method: :destroy) do %>
-<%= submit_tag "Delete" %>
-<% end %>
+<%= button_to "Delete", "/tracks/#{track.id}", method: 'delete' %>
 
 </div>
