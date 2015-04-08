@@ -3,6 +3,18 @@ $(document).ready(function(){
   // add event listener to all players
   givePlayersListeners();
 
+  // delete tracks by ID from track button
+  $("#all-tracks").on('click', '.track-delete-btn', function(e) {
+    e.preventDefault();
+    id = $(this).attr("id");
+
+    $.ajax({
+      type: 'delete',
+      url: '/tracks/' + id
+      // data: {id: id}
+    });
+  });
+
   $("#recorderStart").on('click', function(e) {
     recorderStart();
     playAll();

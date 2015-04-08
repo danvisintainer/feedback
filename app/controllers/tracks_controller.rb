@@ -15,11 +15,15 @@ class TracksController < ApplicationController
 
   def destroy
     Track.destroy(params[:id])
+    @id = params[:id]
+
+    respond_to do |f|
+      f.js { }
+    end
   end
 
   def show
     @track = Track.find(params[:id])
-    # render layout: false
   end
 
   def show_all

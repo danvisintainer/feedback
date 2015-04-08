@@ -9,6 +9,6 @@
     </div>
   </div>
 
-<%= button_to "Delete", "/tracks/#{track.id}", method: 'delete' %>
+<%= button_to "Delete", "/tracks/#{track.id}", method: 'delete', class: 'track-delete-btn', id: track.id %>
 
 </div>
