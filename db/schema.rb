@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408141456) do
+ActiveRecord::Schema.define(version: 20150408130723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "projects", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.string   "name"
     t.string   "description"
     t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tracks", force: :cascade do |t|
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20150408141456) do
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "user_id"
+    t.integer  "project_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

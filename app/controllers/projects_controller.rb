@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(project_params)
-    render 'show'
+    redirect_to "/projects/#{@project.id}"
   end
 
   def show

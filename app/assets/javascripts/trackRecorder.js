@@ -18,7 +18,7 @@ var navigator = window.navigator;
       mediaStream = localMediaStream;
       var mediaStreamSource = context.createMediaStreamSource(localMediaStream);
       rec = new Recorder(mediaStreamSource, {
-        workerPath: 'recorderWorker.js'
+        workerPath: '../recorderWorker.js'
       });
 
       rec.record();
@@ -28,7 +28,6 @@ var navigator = window.navigator;
   }
 
   function recorderStop() {
-    debugger
     mediaStream.stop();
     rec.stop();
 
@@ -37,7 +36,7 @@ var navigator = window.navigator;
 
       var fd = new FormData();
       fd.append('fname', 'test.wav');
-      fd.append('data', e);
+      fd.append('data', e, gon.project_id);
       $.ajax({
           type: 'POST',
           url: '/tracks',
