@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'tracks#new'
+  root 'projects#new'
 
   # post '/create', to: 'tracks#create'
 

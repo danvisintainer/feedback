@@ -1,7 +1,8 @@
 class TracksController < ApplicationController
   def create
-    binding.pry
     @track = Track.create(audio: params["data"])
+    @track.project_id = params[:project_id]
+    @track.save
     respond_to do |f|
       f.js { }
     end

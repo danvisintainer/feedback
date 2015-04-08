@@ -36,7 +36,8 @@ var navigator = window.navigator;
 
       var fd = new FormData();
       fd.append('fname', 'test.wav');
-      fd.append('data', e, gon.project_id);
+      fd.append('data', e);
+      fd.append('project_id', gon.project_id);
       $.ajax({
           type: 'POST',
           url: '/tracks',
