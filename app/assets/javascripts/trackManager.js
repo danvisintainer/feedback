@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   // make wavesurfers on recording add
   $('#all-tracks').on('DOMNodeInserted', function(e){
-    debugger;
+    // debugger;
     makeWavesurfer($(e.target));
   });
 
@@ -42,7 +42,7 @@ $(document).ready(function(){
 function makeWavesurfer(div) {
   var wavesurfer = Object.create(WaveSurfer);
 
-  debugger;
+  // debugger;
   wavesurfer.init({
     container: "#" + div.attr("id"),
     waveColor: 'gray',
