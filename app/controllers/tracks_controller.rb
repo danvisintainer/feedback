@@ -13,7 +13,8 @@ class TracksController < ApplicationController
   def new
   end
 
-  def destroy 
+  def destroy
+     
   end
 
   def show

@@ -8,4 +8,9 @@
       <div class="playhead"></div>
     </div>
   </div>
+
+<% form_tag (track_path, method: :destroy) do %>
+<%= submit_tag "Delete" %>
+<% end %>
+
 </div>
