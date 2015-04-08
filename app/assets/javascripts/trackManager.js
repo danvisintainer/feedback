@@ -15,14 +15,18 @@ $(document).ready(function(){
     });
   });
 
-  $("#recorderStart").on('click', function(e) {
+  $("#controls").on('click', '#recorderStart', function(e) {
     recorderStart();
     playAll();
+    $(this).text("Stop");
+    $(this).attr('id', 'recorderStop');
     e.stopPropagation();
   });
 
-  $("#recorderStop").on('click', function(e) {
+  $("#controls").on('click', '#recorderStop', function(e) {
     recorderStop();
+    $(this).text("Record");
+    $(this).attr('id', 'recorderStart');
     e.stopPropagation();
   });
 
