@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project_id = @project.id
     gon.project_id = @project_id
+    @tracks = @project.tracks
   end
 
   private
