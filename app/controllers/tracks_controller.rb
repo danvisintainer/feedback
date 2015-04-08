@@ -1,8 +1,9 @@
 class TracksController < ApplicationController
   def create
     @track = Track.create(audio: params["data"])
-    @track.project_id = params[:project_id]
+    @track.project = Project.find(params[:project_id])
     @track.save
+    
     respond_to do |f|
       f.js { }
     end
