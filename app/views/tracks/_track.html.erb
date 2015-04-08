@@ -1,3 +1,4 @@
 <div id="waveform-<%= track.id %>" audio-source="<%= track.audio.url %>">
+
   <%= button_to "Delete", "/tracks/#{track.id}", method: 'delete', class: 'track-delete-btn', id: track.id %>
 </div>

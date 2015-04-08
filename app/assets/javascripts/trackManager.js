@@ -1,25 +1,23 @@
 $(document).ready(function(){
 
-  // add event listener to all players
-  givePlayersListeners();
-
+  // make Microphone visualizer
   showMicVisualizer();
 
-  // delete tracks by ID from track button
-  $("#all-tracks").on('click', '.track-delete-btn', function(e) {
-    e.preventDefault();
-    id = $(this).attr("id");
+  // make wavesurfers on page load
+  $("div[id^=waveform-]").each(function(i, v) {
+    // debugger;
+    makeWavesurfer($(this));
+  });
 
-    $.ajax({
-      type: 'delete',
-      url: '/tracks/' + id
-      // data: {id: id}
-    });
+  // make wavesurfers on recording add
+  $('#all-tracks').on('DOMNodeInserted', function(e){
+    debugger;
+    makeWavesurfer($(e.target));
   });
 
   $("#controls").on('click', '#recorderStart', function(e) {
     recorderStart();
-    playAll();
+    // playAll();
     $(this).text("Stop");
     $(this).attr('id', 'recorderStop');
     e.stopPropagation();
@@ -37,67 +35,60 @@ $(document).ready(function(){
     e.stopPropagation();
   });
 
-  $("#all-tracks").on('click', '.play', function(e){
-    var music = $(this).parent().parent().find(".music")[0];
-    play(music, this);
 
-    e.stopPropagation();
-  });
-
-  $("#all-tracks").on('click', '.pause', function(e){
-    var music = $(this).parent().parent().find(".music")[0];
-    play(music, this);
-
-    e.stopPropagation();
-  });
-
-  $("#dataTable tbody").on( "click", "tr", function() {
-    debugger;
-  });
-
-  $('#all-tracks').on('DOMNodeInserted', function(e){
-    // debugger;
-    console.log("Creating new player.");
-    currentDiv = $(this).children().last();
-    music = currentDiv.find(".music")[0];
-    pButton = currentDiv.find(".play")[0];
-
-    var timeline = currentDiv.find('.timeline')[0]; // timeline
-    // timeline width adjusted for playhead
-    var playhead = currentDiv.find('.playhead')[0]; // playhead
-    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
-
-    dynamicallyCreateEventListener(music, pButton, timeline, playhead, timelineWidth);
-    // var duration;
-    
-    // music.addEventListener("canplaythrough", function () {
-    //   duration = music.duration;
-    //   // console.log("duration is " + duration) ; 
-    // }, false);
-
-    
-  });
 
 });
 
-function playAll() {
-  $.each($('.play'), function(i, v) {
-    v.click();
-  });
-}
+function makeWavesurfer(div) {
+  var wavesurfer = Object.create(WaveSurfer);
 
-function dynamicallyCreateEventListener(music, pButton, timeline, playhead, timelineWidth){
-  music.addEventListener("timeupdate", function() {
-      var playPercent = timelineWidth * (music.currentTime / music.duration);
-      playhead.style.marginLeft = playPercent + "px";
-      // console.log("Checking with timeUpdate()");
-      console.log("Checking if " + music.currentTime + " = " + music.duration);
-      if (music.currentTime === music.duration) {
-        pButton.className = "";
-        pButton.className = "play";
-        console.log("Song finished!");
-      }
-    }, false);
+  debugger;
+  wavesurfer.init({
+    container: "#" + div.attr("id"),
+    waveColor: 'gray',
+    progressColor: 'black'
+  });
+
+  wavesurfer.load(div.attr("audio-source"));
+
+  if (wavesurfer.enableDragSelection) {
+        wavesurfer.enableDragSelection({
+            color: 'rgba(0, 255, 0, 0.1)'
+        });
+    }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var progressDiv = document.querySelector('#progress-bar');
+    var progressBar = progressDiv.querySelector('.progress-bar');
+
+    var showProgress = function (percent) {
+        progressDiv.style.display = 'block';
+        progressBar.style.width = percent + '%';
+    };
+
+    var hideProgress = function () {
+        progressDiv.style.display = 'none';
+    };
+
+    wavesurfer.on('loading', showProgress);
+    wavesurfer.on('ready', hideProgress);
+    wavesurfer.on('destroy', hideProgress);
+    wavesurfer.on('error', hideProgress);
+  });
+
+  div.append($('<button/>', {
+    text: "Play / Pause",
+    click: function () { wavesurfer.playPause(); }
+  }));
+
+  div.append($('<button/>', {
+    text: "Stop",
+    click: function () { wavesurfer.stop(); }
+  }));
+
+  $(div).find("button").first().addClass("play");
+  $(div).find("button").last().addClass("stop")
+
 }
 
 // Play and Pause
@@ -114,6 +105,16 @@ function play(music, pButton) {
     pButton.className = "";
     pButton.className = "play";
   }
+}
+
+function playAll() {
+  $.each($('.stop'), function(i, v) {
+    v.click();
+  });
+
+  $.each($('.play'), function(i, v) {
+    v.click();
+  });
 }
 
 function givePlayersListeners() {
