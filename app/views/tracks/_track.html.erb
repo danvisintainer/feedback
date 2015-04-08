@@ -1,14 +1,3 @@
-<div id="audio-and-player-<%= track.id %>">
-  <audio id="music-<%= track.id %>" class="music" preload="true">
-    <source src="<%= track.audio.url %>" type="audio/wav">
-    </audio>
-  <div id="audioplayer-<%= track.id %>" class="audioplayer">
-    <button class="play"></button>
-    <div class="timeline">    
-      <div class="playhead"></div>
-    </div>
-  </div>
-
-<%= button_to "Delete", "/tracks/#{track.id}", method: 'delete', class: 'track-delete-btn', id: track.id %>
-
+<div id="waveform-<%= track.id %>" audio-source="<%= track.audio.url %>">
+  <%= button_to "Delete", "/tracks/#{track.id}", method: 'delete', class: 'track-delete-btn', id: track.id %>
 </div>
