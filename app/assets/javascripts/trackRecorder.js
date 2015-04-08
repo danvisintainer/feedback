@@ -28,6 +28,7 @@ var navigator = window.navigator;
   }
 
   function recorderStop() {
+    debugger
     mediaStream.stop();
     rec.stop();
 
