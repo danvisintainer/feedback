@@ -11,11 +11,9 @@ class TracksController < ApplicationController
   end
 
   def new
-
   end
 
-  def test
-    
+  def destroy 
   end
 
   def show
