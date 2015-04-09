@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
     @project.update(completed: params[:completed])
     @project.save
     redirect_to projects_path
+  end
 
   def destroy
     Project.destroy(params[:id])
