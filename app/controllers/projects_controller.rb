@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+
     if @project.user.id == current_user.id
       @project.update(completed: params[:completed])
       respond_to do |f|

@@ -1,8 +1,9 @@
 $(document).ready(function(){
-	$("#delete-project").on('submit', function(e){
+	$("#collab-btn").on('submit', function(e){
 		e.preventDefault();
 		var url = $(this).attr("action");
 		var data = $(this).children().last().val();
+
 		$.ajax({
 			type: 'PATCH',
 			dataType: "script",

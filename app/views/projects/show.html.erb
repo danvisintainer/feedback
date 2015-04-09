@@ -6,9 +6,9 @@
 
 <% if current_user && project_owner? %>
 	<% if !@project.completed %>
-		<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id, :form => { :id => "delete-project" } %>
+		<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id, :form => { :id => "collab-btn" } %>
 	<% else %>
-		<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id, :form => { :id => "delete-project" } %>
+		<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id, :form => { :id => "collab-btn" } %>
 	<% end %>
 <% end %>
 
