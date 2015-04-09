@@ -27,6 +27,10 @@ class ProjectsController < ApplicationController
     @project.update(completed: params[:completed])
     @project.save
     redirect_to projects_path
+
+  def destroy
+    Project.destroy(params[:id])
+    redirect_to "/users/#{current_user.id}"
   end
 
   private
