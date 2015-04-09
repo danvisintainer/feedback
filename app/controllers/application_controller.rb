@@ -13,5 +13,9 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def project_owner?
+    current_user.id == @project.user.id
+  end
+  helper_method :project_owner?
 
 end

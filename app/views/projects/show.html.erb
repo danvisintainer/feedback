@@ -4,11 +4,12 @@
 <h1><%=@project.name  %></h1>
 </p><%=@project.description  %></p>
 
-
-<% if !@project.completed %>
-	<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id %>
-<% else %>
-	<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id %>
+<% if current_user && project_owner? %>
+	<% if !@project.completed %>
+		<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id, :form => { :id => "delete-project" } %>
+	<% else %>
+		<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id, :form => { :id => "delete-project" } %>
+	<% end %>
 <% end %>
 
 </center>
@@ -33,7 +34,7 @@
 </div>
 
 <center>
-<% if current_user.nil?  %>
-<% elsif current_user.id == @project.user.id %>
+
+<% if current_user && project_owner? %>
   <%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn', id: @project.id %>
 <% end %>

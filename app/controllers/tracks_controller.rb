@@ -14,11 +14,13 @@ class TracksController < ApplicationController
   end
 
   def destroy
-    Track.destroy(params[:id])
+    @track = Track.find(params[:id])
     @id = params[:id]
-
-    respond_to do |f|
-      f.js { }
+    if current_user.id == @track.project.user.id || current_user.id == @track.user.id
+      @track.destroy
+      respond_to do |f|
+        f.js { }
+      end
     end
   end
 
