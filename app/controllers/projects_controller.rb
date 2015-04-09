@@ -22,6 +22,13 @@ class ProjectsController < ApplicationController
     @tracks = @project.tracks
   end
 
+  def update
+    @project = Project.find(params[:id])
+    @project.update(completed: params[:completed])
+    @project.save
+    redirect_to projects_path
+  end
+
   private
   def project_params
     params.require(:project).permit(:name, :description)
