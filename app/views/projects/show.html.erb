@@ -4,7 +4,7 @@
 <h1><%=@project.name  %></h1>
 </p><%=@project.description  %></p>
 
-<% if current_user && current_user.id == @project.user.id %>
+<% if current_user && project_owner? %>
 	<% if !@project.completed %>
 		<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id %>
 	<% else %>

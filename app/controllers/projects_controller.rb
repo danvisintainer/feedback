@@ -24,14 +24,12 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    binding.pry
     if @project.user.id == current_user.id
       @project.update(completed: params[:completed])
       respond_to do |f|
         f.js { }
       end
     end
-    binding.pry
   end
 
   def destroy
