@@ -17,6 +17,7 @@ var navigator = window.navigator;
     navigator.getUserMedia({audio: true}, function(localMediaStream){
       mediaStream = localMediaStream;
       var mediaStreamSource = context.createMediaStreamSource(localMediaStream);
+      playAll();
       rec = new Recorder(mediaStreamSource, {
         workerPath: '../recorderWorker.js'
       });
