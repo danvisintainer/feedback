@@ -4,12 +4,13 @@
 <h1><%=@project.name  %></h1>
 </p><%=@project.description  %></p>
 
-<% if !@project.completed %>
-	<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id %>
-<% else %>
-	<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id %>
+<% if current_user && current_user.id == @project.user.id %>
+	<% if !@project.completed %>
+		<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id %>
+	<% else %>
+		<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id %>
+	<% end %>
 <% end %>
-
 
 </center>
 <div id="mic-visualizer">
@@ -34,6 +35,6 @@
 
 <center>
 
-<% if current_user.id == @project.user.id && !current_user.nil? %>
+<% if current_user && current_user.id == @project.user.id %>
   <%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn', id: @project.id %>
 <% end %>
