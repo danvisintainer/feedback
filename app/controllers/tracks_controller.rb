@@ -1,13 +1,13 @@
 class TracksController < ApplicationController
   def create
     @track = Track.create(audio: params["data"])
+    @track.user = User.find(session[:user_id])
     @track.project = Project.find(params[:project_id])
     @track.save
     
     respond_to do |f|
       f.js { }
     end
-    # redirect_to track_path(@track)
   end
 
   def new
