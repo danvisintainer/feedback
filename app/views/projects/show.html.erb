@@ -26,3 +26,9 @@
 
   <%= render partial: "tracks/track", collection: @tracks %>
 </div>
+
+<center>
+
+<% if current_user.id == @project.user.id && !current_user.nil? %>
+  <%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn', id: @project.id %>
+<% end %>

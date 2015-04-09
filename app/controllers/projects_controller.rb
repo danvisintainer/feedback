@@ -22,6 +22,11 @@ class ProjectsController < ApplicationController
     @tracks = @project.tracks
   end
 
+  def destroy
+    Project.destroy(params[:id])
+    redirect_to "/users/#{current_user.id}"
+  end
+
   private
   def project_params
     params.require(:project).permit(:name, :description)
