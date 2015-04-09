@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	
+
 	if (gon.project_completed === true){
 		$("#recorderStart").hide();
 	}
