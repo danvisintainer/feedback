@@ -22,14 +22,14 @@ class SessionsController < ApplicationController
 
     @user = User.find_or_create_by(twitter_username: twitter_user.screen_name)
     @user.name ||= twitter_user.name
-    # @user.avatar ||= open(@twitter_user.profile_image_uri)
-    binding.pry
-    @user.avatar.create!(file: URI.parse(twitter_user.profile_image_uri))
-
+    @user.avatar_url = twitter_user.profile_image_uri.to_s
+    # Password digest can't be blank so Twitter users still need content stored in the DB.
+    @user.password_digest ||= "no_password"
     @user.save
 
     session[:user_id] = @user.id
 
+    redirect_to root_path
   end
 
   def destroy

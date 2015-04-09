@@ -1,5 +1,8 @@
 <div id="waveform-<%= track.id %>" audio-source="<%= track.audio.url %>">
   Uploaded by <%= track.user.name %>
+  <br>
+ <!--Displays avatar of the user who uploaded the track-->
+<a href=<%= "/users/#{track.user.id}" %>><img src="<%= track.user.avatar_url %>"</a>
 
 <% if current_user.nil? %>
 
