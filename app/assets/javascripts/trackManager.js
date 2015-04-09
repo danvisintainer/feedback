@@ -30,6 +30,17 @@ $(document).ready(function(){
     e.stopPropagation();
   });
 
+  $("#all-tracks").on('click', '.track-delete-btn', function(e) {
+    e.preventDefault();
+    id = $(this).attr("id");
+
+    $.ajax({
+      type: 'delete',
+      url: '/tracks/' + id
+      // data: {id: id}
+    });
+  });
+
   $("#playAll").on('click', function(e) {
     playAll();
     e.stopPropagation();
