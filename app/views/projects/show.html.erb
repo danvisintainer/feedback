@@ -19,10 +19,12 @@
 
 <center>
 
-<div id="controls">
-  <button id="recorderStart">Record</button>
-  <!-- <button id="recorderStop">Stop</button> -->
-</div>
+<% if current_user %>
+	<div id="controls">
+	  <button id="recorderStart">Record</button>
+	  <!-- <button id="recorderStop">Stop</button> -->
+	</div>
+<% end %>
 
 <button id="playAll">Play All!</button>
 
