@@ -1,6 +1,5 @@
 class TracksController < ApplicationController
   def create
-    binding.pry
     @track = Track.create(audio: params["data"])
     @track.user = User.find(session[:user_id])
     @track.project = Project.find(params[:project_id])
