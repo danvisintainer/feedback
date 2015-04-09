@@ -22,6 +22,13 @@ class ProjectsController < ApplicationController
     @tracks = @project.tracks
   end
 
+  def update
+    @project = Project.find(params[:id])
+    @project.update(completed: params[:completed])
+    @project.save
+    redirect_to projects_path
+  end
+
   def destroy
     Project.destroy(params[:id])
     redirect_to "/users/#{current_user.id}"
