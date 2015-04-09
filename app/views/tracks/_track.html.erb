@@ -1,4 +1,13 @@
 <div id="waveform-<%= track.id %>" audio-source="<%= track.audio.url %>">
-  Uploaded by <%= track.user.name %>  
+  Uploaded by <%= track.user.name %>
+
+<% if current_user.nil? %>
+
+<% elsif current_user.id == track.project.user.id || current_user.id == track.user.id%>
   <%= button_to "Delete", "/tracks/#{track.id}", method: 'delete', class: 'track-delete-btn', id: track.id %>
+<% end %>
+
+
+
+
 </div>
