@@ -18,13 +18,18 @@ class SessionsController < ApplicationController
     session[:access_token] = request.env['omniauth.auth']['credentials']['token']
     session[:access_token_secret] = request.env['omniauth.auth']['credentials']['secret']
 
-    @twitter_user = client.user(include_entities: true)
+    twitter_user = client.user(include_entities: true)
 
-    @user = User.find_or_create_by(twitter_username: @twitter_user.screen_name)
-    @user.name = @twitter_user.name
-    @user.avatar = open(@twitter_user.profile_image_uri)
-    
+    @user = User.find_or_create_by(twitter_username: twitter_user.screen_name)
+    @user.name ||= twitter_user.name
+    # @user.avatar ||= open(@twitter_user.profile_image_uri)
+    binding.pry
+    @user.avatar.create!(file: URI.parse(twitter_user.profile_image_uri))
+
     @user.save
+
+    session[:user_id] = @user.id
+
   end
 
   def destroy
