@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'twitter'
+gem 'omniauth'
+gem 'omniauth-twitter'
 gem 'gon'
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
