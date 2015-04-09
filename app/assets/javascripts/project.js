@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$(".button_to").on('submit', function(e){
+	$("#delete-project").on('submit', function(e){
 		e.preventDefault();
 		var url = $(this).attr("action");
 		var data = $(this).children().last().val();
