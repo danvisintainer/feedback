@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :tracks
   resources :projects
 
+  get '/auth/twitter/callback', to: 'sessions#create_via_twitter', as: 'callback'
+  get '/auth/failure', to: 'sessions#error', as: 'failure'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
