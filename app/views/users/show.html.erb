@@ -1,0 +1,4 @@
+<h1>Projects by <%= @user.name %></h1>
+<% @projects.each do |project| %>
+	<%= link_to project.name, project  %><br>
+<% end  %>

@@ -1,0 +1,12 @@
+<nav>
+<%= link_to "Home", projects_path %>
+<% if current_user %>
+	<%= link_to "#{current_user.name}", "/users/#{current_user.id}" %>
+	<%= link_to "New Project", new_project_path %>
+	<%= link_to "Log Out", logout_path %>
+
+<% else %>
+	<%= link_to "Log In", login_path %>
+	<%= link_to "Sign Up", signup_path %>
+<% end %>
+</nav>

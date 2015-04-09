@@ -6,7 +6,13 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(project_params)
+    @project.user = User.find(session[:user_id])
+    @project.save
     redirect_to "/projects/#{@project.id}"
+  end
+
+  def index
+    @projects = Project.all
   end
 
   def show

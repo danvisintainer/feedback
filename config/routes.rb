@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'projects#new'
+  root 'projects#index'
 
   # post '/create', to: 'tracks#create'
 
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  get '/users/:id' => 'users#show'
 
   resources :tracks
   resources :projects
