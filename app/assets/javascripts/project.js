@@ -1,4 +1,9 @@
+
 $(document).ready(function(){
+	
+	if (gon.project_completed === true){
+		$("#recorderStart").hide();
+	}
 	$("#collab-btn").on('submit', function(e){
 		e.preventDefault();
 		var url = $(this).attr("action");

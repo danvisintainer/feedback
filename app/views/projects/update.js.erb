@@ -1,5 +1,6 @@
 
 var $button = $(document).find("input.project-complete-btn")
+$("#recorderStart").hide()
 
 if ($button.val() === "Project Complete"){
 	$button.val("Allow Collaboration")
@@ -7,3 +8,4 @@ if ($button.val() === "Project Complete"){
 else {
 	$button.val("Project Complete")
 }
+

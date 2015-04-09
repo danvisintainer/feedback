@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
     @project_id = @project.id
     gon.project_id = @project_id
     @tracks = @project.tracks
+    gon.project_completed = @project.completed
   end
 
   def update
