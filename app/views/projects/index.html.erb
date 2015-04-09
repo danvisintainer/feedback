@@ -1,5 +1,16 @@
-<h1>All Projects</h1>
+<h1>Projects</h1>
 
+<h2>Completed Projects</h2>
 <% @projects.each do |project| %>
-<%= link_to project.name, project %><br>
+	<% if project.completed == true %>
+	<%= link_to project.name, project %><br>
+	<% end %>
+<% end %>
+
+
+<h2>Open Projects</h2>
+<% @projects.each do |project| %>
+	<% if project.completed == false %>
+	<%= link_to project.name, project %><br>
+	<% end %>
 <% end %>
