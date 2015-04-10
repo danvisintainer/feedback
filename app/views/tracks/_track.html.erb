@@ -2,7 +2,7 @@
   Uploaded by <%= track.user.name %>
   <br>
  <!--Displays avatar of the user who uploaded the track-->
-<a href=<%= "#{user_path(current_user)}" %>><img src="<%= track.user.avatar_url %>"</a>
+<a href=<%= "#{user_path(current_user)}" %>><img src="<%= track.user.avatar_url %>"></a>
 
 <% if current_user.nil? %>
 
