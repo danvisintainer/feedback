@@ -46,9 +46,8 @@
 
 <br>
 <br>
-<div>
-<h3>
-<%= "#{@project.comments.count} comments" %>
+<div id="comment-count">
+<h3><%= "#{@project.comments.count} comments" %>
 </h3>
 </div>
 
@@ -65,6 +64,8 @@
 	<% end %>
 	 </div>
 <% end %>
+
+
 
  <!-- :remote => true -->
 <br>
