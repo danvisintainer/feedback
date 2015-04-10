@@ -1,7 +1,5 @@
 console.log("create.js.erb file");
  
-$("#comments").append("<%= @comment.user.name %>: <%= @comment.body %>");
+$("#comments").prepend("<%= j render partial: 'comment', locals: {comment: @comment} %>");
  
-
-// $("#comments h4").html(""); 
  

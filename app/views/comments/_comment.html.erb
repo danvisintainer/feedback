@@ -1,11 +1,2 @@
-
-<div id="comments"> 
-  <p>
-  <strong>User:</strong>
-    <%= comment.user.name %>
-  </p>
-  <p>
-  <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-</div>
+<p><a href=<%= "#{user_path(comment.user)}" %>><img src="<%= comment.user.avatar_url %>"></a><%= "#{comment.user.name}: #{comment.body}" %></p>
+  
