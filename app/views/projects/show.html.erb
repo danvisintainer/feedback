@@ -33,10 +33,36 @@
 <div id="all-tracks">
 
   <%= render partial: "tracks/track", collection: @tracks %>
+
 </div>
+<br>
 
 <center>
 
 <% if current_user && project_owner? %>
   <%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn', id: @project.id %>
 <% end %>
+
+
+<br>
+<br>
+<div>
+COMMENT SECTION HERE
+</div>
+
+
+<%= form_for [@project, Comment.new] do |f| %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control col-lg-8", placeholder: "Provide comment here." %>
+    <%= f.hidden_field :project_id, :value => @project.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Leave Comment" %>
+  </div>
+<% end %>
+</div>
+
+ <!-- :remote => true -->
+<br>
+ <%= render @project.comments.reverse %>
