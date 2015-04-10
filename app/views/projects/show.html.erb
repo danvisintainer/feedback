@@ -47,21 +47,24 @@
 <br>
 <br>
 <div>
-COMMENT SECTION HERE
+<h3>
+<%= "#{@project.comments.count} comments" %>
+</h3>
 </div>
 
-
-<%= form_for [@project, Comment.new] do |f| %>
-  <div class="field">
-    <%= f.text_area :body, class: "form-control col-lg-8", placeholder: "Provide comment here." %>
-    <%= f.hidden_field :project_id, :value => @project.id %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Leave Comment" %>
-  </div>
+<% if current_user %>
+	<%= form_for [@project, Comment.new], :remote => true do |f| %>
+	  <div class="field">
+	    <%= f.text_area :body, class: "form-control col-lg-8", placeholder: "Provide comment here." %>
+	    <%= f.hidden_field :project_id, :value => @project.id %>
+	    <%= f.hidden_field :user_id, :value => current_user.id %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit "Leave Comment" %>
+	  </div>
+	<% end %>
+	 </div>
 <% end %>
-</div>
 
  <!-- :remote => true -->
 <br>
