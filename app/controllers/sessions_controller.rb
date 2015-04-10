@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
     twitter_user = client.user(include_entities: true)
 
-    puts "Trying to create new AR object..."
+    puts "Trying to create new AR object for '#{twitter_user.screen_name}...'"
     @user = User.find_or_create_by(twitter_username: twitter_user.screen_name)
     puts "Setting name..."
     @user.name ||= twitter_user.name
