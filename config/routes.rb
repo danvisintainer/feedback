@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/users/:id' => 'users#show', :as => :user
+  patch '/users/:id' => 'users#update'
 
   resources :tracks
   resources :projects

@@ -3,11 +3,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @projects = @user.projects
+    @instruments = User.instruments
   end
 
   def new
     @user = User.new
-    @instruments = ["Guitar", "Bass", "Drums", "Keyboards"]
+    @instruments = User.instruments
   end
 
   def create
@@ -18,6 +19,13 @@ class UsersController < ApplicationController
     else
       redirect_to '/signup'
     end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(:primary_instrument => params[:user][:primary_instrument])
+        binding.pry
+    redirect_to user_path(current_user)
   end
 
   private
