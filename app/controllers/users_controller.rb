@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @instruments = ["Guitar", "Bass", "Drums", "Keyboards"]
   end
 
   def create
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :primary_instrument, :password, :password_confirmation)
   end
 
 end

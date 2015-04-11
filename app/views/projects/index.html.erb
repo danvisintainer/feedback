@@ -14,3 +14,7 @@
 	<%= link_to project.name, project %><br>
 	<% end %>
 <% end %>
+
+<% if current_user && current_user.primary_instrument %>
+	<h2>Projects Looking For <%= current_user.primary_instrument %></h2>
+<% end %>
