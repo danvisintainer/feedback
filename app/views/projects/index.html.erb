@@ -1,4 +1,13 @@
-<h1>Projects</h1>
+<h1>Community Projects</h1>
+
+<% if current_user && current_user.primary_instrument %>
+	<h2>Projects Looking For <%= current_user.primary_instrument %> Tracks</h2>
+
+<% @personalized_projects.each do |project| %>
+	<%= link_to project.name, project %><br>
+	<% end %>
+
+<% end %>
 
 <h2>Completed Projects</h2>
 <% @projects.each do |project| %>
@@ -15,6 +24,4 @@
 	<% end %>
 <% end %>
 
-<% if current_user && current_user.primary_instrument %>
-	<h2>Projects Looking For <%= current_user.primary_instrument %> Tracks</h2>
-<% end %>
+

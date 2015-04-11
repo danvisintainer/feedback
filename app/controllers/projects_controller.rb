@@ -7,13 +7,13 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.create(project_params)
     @project.user = User.find(session[:user_id])
-    @project.instrument_need = InstrumentNeed.new
     @project.save
     redirect_to "/projects/#{@project.id}"
   end
 
   def index
     @projects = Project.all
+    @personalized_projects =  Project.joins(:instrument_need).where("#{current_user.primary_instrument} = '1'") 
   end
 
   def show
@@ -24,13 +24,11 @@ class ProjectsController < ApplicationController
     gon.project_completed = @project.completed
 
     # Create a new instance of InstrumentNeed for the project if it does not already have one.
-    @instrument_need = @project.instrument_need || InstrumentNeed.new
+    @instrument_need = @project.instrument_need || (@project.instrument_need = InstrumentNeed.create)
   end
 
   def update
-    binding.pry
     @project = Project.find(params[:id])
-
     if @project.user.id == current_user.id
       @project.update(completed: params[:completed])
       respond_to do |f|

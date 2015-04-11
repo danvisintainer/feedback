@@ -1,11 +1,14 @@
 
 var $button = $(document).find("input.project-complete-btn")
 $("#recorderStart").toggle()
+$("#instrument-need-checkbox").toggle()
 
 if ($button.val() === "Project Complete"){
-	$button.val("Allow Collaboration")
+	$button.val("Allow Collaboration");
+
 }
 else {
-	$button.val("Project Complete")
+	$button.val("Project Complete");
+
 }
 
