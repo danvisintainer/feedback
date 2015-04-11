@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.create(project_params)
     @project.user = User.find(session[:user_id])
+    @project.instrument_need = InstrumentNeed.new
     @project.save
     redirect_to "/projects/#{@project.id}"
   end
@@ -21,9 +22,13 @@ class ProjectsController < ApplicationController
     gon.project_id = @project_id
     @tracks = @project.tracks
     gon.project_completed = @project.completed
+
+    # Create a new instance of InstrumentNeed for the project if it does not already have one.
+    @instrument_need = @project.instrument_need || InstrumentNeed.new
   end
 
   def update
+    binding.pry
     @project = Project.find(params[:id])
 
     if @project.user.id == current_user.id

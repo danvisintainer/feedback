@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :tracks
   resources :projects
+  resources :instrument_needs
 
 
   get '/auth/twitter/callback', to: 'sessions#create_via_twitter', as: 'callback'

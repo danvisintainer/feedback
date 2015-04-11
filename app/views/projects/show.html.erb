@@ -10,6 +10,18 @@
 	<% else %>
 		<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id, :form => { :id => "collab-btn" } %>
 	<% end %>
+		<%= form_for @instrument_need, url: instrument_need_path, :method => :patch do |f| %>
+		<%= f.label :guitar %>
+		<%= f.check_box :guitar %>
+		<%= f.label :bass %>
+		<%= f.check_box :bass %>
+		<%= f.label :drums %>
+		<%= f.check_box :drums %>
+		<%= f.label :keyboards %>
+		<%= f.check_box :keyboards %>
+		<%= f.hidden_field :project_id, :value => @project.id %>
+		<%= f.submit "Save" %>
+	<% end %>
 <% end %>
 
 </center>
