@@ -1,3 +1,5 @@
 $("#comments").prepend("<%= j render partial: 'comment', locals: {comment: @comment} %>");
- 
+
+// use jquery to locate comment count & increase it
+ $("#comment-count").children().text("<%= @project.comments.length %> comments");
  
