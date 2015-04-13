@@ -13,7 +13,9 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    @personalized_projects =  Project.joins(:instrument_need).where("#{current_user.primary_instrument} = '1'") 
+    if current_user
+      @personalized_projects =  Project.joins(:instrument_need).where("#{current_user.primary_instrument} = '1'")
+    end 
   end
 
   def show
