@@ -33,11 +33,11 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     if @project.user.id == current_user.id
       @project.update(completed: params[:completed])
-      binding.pry
-
-      #reset InstrumetntNeed on update
-      @project.instrument_need.destroy
-      @project.instrument_need = InstrumentNeed.new
+      #reset InstrumetntNeed on completion of project
+      if params[:completed] == "true"
+        @project.instrument_need.destroy
+        @project.instrument_need = InstrumentNeed.new
+      end
 
       respond_to do |f|
         f.js { }
