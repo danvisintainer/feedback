@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'wavefile'
+gem 'lame'
 gem 'twitter'
 gem 'omniauth'
 gem 'omniauth-twitter'
