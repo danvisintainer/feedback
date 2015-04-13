@@ -9,11 +9,11 @@ class TracksController < ApplicationController
       config.bitrate = 192
     end
     
-    binding.pry
     print "Converting to MP3..."
+    wave = WaveFile::Reader.new(params["data"].tempfile)
+    mp3_file = File.new("tempaudio/#{(Time.now.to_f*100000).to_i.to_s}.mp3", "w+")
 
-    mp3_path = Tempfile.new("mp3output.mp3")
-    File.open(mp3_path, "wb") do |file|
+    File.open(mp3_file, "wb") do |file|
 
       id3v2_size = 0
       encoder.id3v2 do |tag|
@@ -21,7 +21,7 @@ class TracksController < ApplicationController
         id3v2_size = tag.size
       end
 
-      params["data"].each_buffer(encoder.framesize) do |read_buffer|
+      wave.each_buffer(encoder.framesize) do |read_buffer|
         left  = read_buffer.samples.map { |s| s[0] }
         right = read_buffer.samples.map { |s| s[1] }
 
@@ -43,14 +43,20 @@ class TracksController < ApplicationController
       end
 
     end
-    print "Done."
+
+    print "done."
 
     print "Setting track to AWS..."
-    @track = Track.create(audio: mp3_path)
-    print "Done.\n"
+
+    @track = Track.create(audio: mp3_file)
+    print "done.\n"
     @track.user = User.find(session[:user_id])
     @track.project = Project.find(params[:project_id])
     @track.save
+
+    print "Deleting file..."
+    File.delete(mp3_file.path)
+    print "done."
     
     respond_to do |f|
       f.js { }
