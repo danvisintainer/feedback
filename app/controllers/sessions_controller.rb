@@ -20,16 +20,12 @@ class SessionsController < ApplicationController
 
     twitter_user = client.user(include_entities: true)
 
-    puts "Trying to create new AR object for '#{twitter_user.screen_name}...'"
+
     @user = User.find_or_create_by(twitter_username: twitter_user.screen_name)
-    puts "Setting name..."
     @user.name ||= twitter_user.name
-    puts "Setting avatar..."
     @user.avatar_url = twitter_user.profile_image_uri.to_s
     # Password digest can't be blank so Twitter users still need content stored in the DB.
-    puts "Setting password digest..."
     @user.password_digest ||= "no_password"
-    puts "Saving..."
     @user.save
 
     session[:user_id] = @user.id
