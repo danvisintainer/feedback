@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(:primary_instrument => params[:user][:primary_instrument])
-        binding.pry
     redirect_to user_path(current_user)
   end
 
