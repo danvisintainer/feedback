@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'lame'
 gem 'twitter'
 gem 'omniauth'
 gem 'omniauth-twitter'
