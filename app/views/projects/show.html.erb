@@ -43,7 +43,7 @@
 <br>
 <br>
 <div id="comment-count">
-<a href="#"><%= "#{@project.comments.count} comments" %>
+<a href="javascript:void(0);"><%= "#{@project.comments.count} comments" %>
 </a>
 </div>
 
@@ -66,5 +66,5 @@
  <!-- :remote => true -->
 <br>
 <div id="comments">
- <%= render @project.comments.reverse %>
+ <%= render @project.comments %>
 </div>
