@@ -5,11 +5,7 @@
 </p><%=@project.description  %></p>
 
 <% if current_user && project_owner? %>
-	<% if !@project.completed %>
-		<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id, :form => { :id => "collab-btn" } %>
-	<% else %>
-		<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id, :form => { :id => "collab-btn" } %>
-	<% end %>
+	<%= render 'options' %>
 <% end %>
 
 </center>
@@ -47,8 +43,8 @@
 <br>
 <br>
 <div id="comment-count">
-<h3><%= "#{@project.comments.count} comments" %>
-</h3>
+<a href="#"><%= "#{@project.comments.count} comments" %>
+</a>
 </div>
 
 <% if current_user %>

@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/users/:id' => 'users#show', :as => :user
+  patch '/users/:id' => 'users#update'
 
   resources :tracks
   resources :projects
+  resources :instrument_needs
 
 
   get '/auth/twitter/callback', to: 'sessions#create_via_twitter', as: 'callback'

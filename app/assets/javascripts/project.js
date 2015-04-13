@@ -3,6 +3,7 @@ $(document).ready(function(){
 
 	if (gon.project_completed === true){
 		$("#recorderStart").hide();
+		$("#instrument-need-checkbox").hide();
 	}
 	$("#collab-btn").on('submit', function(e){
 		e.preventDefault();

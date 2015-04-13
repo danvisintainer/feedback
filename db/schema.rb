@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409220800) do
+ActiveRecord::Schema.define(version: 20150411200841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20150409220800) do
   end
 
   add_index "comments", ["project_id"], name: "index_comments_on_project_id", using: :btree
+
+  create_table "instrument_needs", force: :cascade do |t|
+    t.string  "guitar",     default: "0"
+    t.string  "bass",       default: "0"
+    t.string  "drums",      default: "0"
+    t.string  "keyboards",  default: "0"
+    t.integer "project_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
@@ -60,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150409220800) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "avatar_url"
+    t.string   "primary_instrument"
   end
 
   add_foreign_key "comments", "projects"

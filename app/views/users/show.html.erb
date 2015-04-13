@@ -2,3 +2,15 @@
 <% @projects.each do |project| %>
 	<%= link_to project.name, project  %><br>
 <% end  %>
+
+<% if current_user == @user %>
+	<h2>Set Primary Instrument</h2>
+	<%= form_for @user, :method => :patch do |f| %>
+
+		<%= f.label :primary_instrument %>
+		<%= f.select :primary_instrument, options_for_select(@instruments), :selected => @user.primary_instrument %><br>
+		<%= f.submit "Set Instrument" %>
+	<% end %>
+
+
+<% end %>
