@@ -1,18 +1,43 @@
-<nav>
+  <div class="page-loader">
+    <div class="loader">Loading...</div>
+  </div>
 
-<% if current_user %>
+  <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top" role="navigation">
 
-	<%= link_to "Home", projects_path %>
-	<%= link_to "New Project", new_project_path %>
-	<%= link_to "Log Out", logout_path %>
+    <div class="container">
+  
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Rival</a>
+      </div>
+  
+      <div class="collapse navbar-collapse" id="custom-collapse">
+  
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
 
-	 <!--Displays current user's avatar and links to that user's index page-->
-	<%= link_to image_tag(current_user.avatar_url, size: "48x48"), user_path(current_user)  %>
+          <li><%= link_to "Home", projects_path %></li>
+          <li><%= link_to "New Project", new_project_path %></li>
+          <li><%= link_to "Log Out", logout_path %></li>
 
-<% else %>
-	<%= link_to "Home", projects_path %>
-	<%= link_to "Log In", login_path %>
-	<%= link_to "Sign Up", signup_path %>
-<% end %>
+          <li><%= link_to image_tag(current_user.avatar_url, size: "48x48"), user_path(current_user)  %></li>
+           <!--Displays current user's avatar and links to that user's index page-->
 
-</nav>
+        <% else %>
+          <li><%= link_to "Home", projects_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+          <li><%= link_to "Sign Up", signup_path %></li>
+        <% end %>
+  
+  
+        </ul>
+      </div>
+  
+    </div>
+
+  </nav>
