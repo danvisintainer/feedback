@@ -1,6 +1,8 @@
 class TracksController < ApplicationController
   def create
+    print "Setting track to AWS..."
     @track = Track.create(audio: params["data"])
+    print "Done.\n"
     @track.user = User.find(session[:user_id])
     @track.project = Project.find(params[:project_id])
     @track.save
