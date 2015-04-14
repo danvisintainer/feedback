@@ -27,10 +27,18 @@
           <h4 class="modal-title font-alt mb-0">Log In</h4>
         </div>
         <div class="modal-body">
-          <div class="form-group">
-            <button type="button" id="twitter-log-in-button" action="/auth/twitter" class="btn btn-info btn-round btn-block"><i class="fa fa-twitter"></i> Log in with Twitter</button><br>
-            <%= render 'sessions/form' %>
-            <button type="submit" class="btn btn-d btn-round btn-block">New user? Sign up</button>
+          <!-- login form -->
+          <div id="log-in-form">
+            <div class="form-group">
+              <button type="button" id="twitter-log-in-button" action="/auth/twitter" class="btn btn-info btn-round btn-block"><i class="fa fa-twitter"></i> Log in with Twitter</button><br>
+              <%= render 'sessions/form' %>
+              <button type="submit" id="switch-to-sign-up-button" class="btn btn-d btn-round btn-block">New user? Sign up</button>
+            </div>
+          </div>
+          <!-- new user form -->
+          <div id="new-user-form">
+            <%= render 'users/form' %>
+              <button type="submit" id="switch-to-log-in-button" class="btn btn-d btn-round btn-block">Already a user? Log in</button>
           </div>
         </div>
         <div class="modal-footer">

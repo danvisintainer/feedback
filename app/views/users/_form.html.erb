@@ -1,14 +1,10 @@
-<%= form_for @user do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %><br>
-	<%= f.label :email %>
-	<%= f.text_field :email %><br>
-	<%= f.label :primary_instrument %>
-	<%= f.select :primary_instrument, options_for_select(@instruments) %><br>
-	<%= f.label :password %>
-	<%= f.password_field :password %><br>
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %><br>
-	<%= f.submit "Sign Up" %>
+<%= form_for User.new do |f| %>
+	<%= f.text_field :name, class: 'form-control', placeholder: 'Name' %><br>
+	<%= f.text_field :email, class: 'form-control', placeholder: 'Email'  %><br>
+	<h5 class="font-alt mb-0">Primary Instrument
+	<%= f.select :primary_instrument, options_for_select(User.instruments) %></h5><br>
+	<%= f.password_field :password, class: 'form-control', placeholder: 'Password'  %><br>
+	<%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm Password'  %><br>
+	<%= f.submit "Sign Up", class: "btn btn-g btn-round btn-block" %><br>
 <% end %>
 
