@@ -4,4 +4,9 @@ $(document).ready(function() {
       keyboard: true
     });
   });
+
+  $("#twitter-log-in-button").on('click', function(e) {
+    window.location = '/auth/twitter';
+  });
 });
+
