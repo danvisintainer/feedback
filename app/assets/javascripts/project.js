@@ -3,6 +3,10 @@ function completedCheck(){
 	if (gon.project_completed === true){
 		$("#recorderStart").hide();
 		$("#instrument-need-checkbox").hide();
+	  $(".not-completed-guide").hide();
+	}
+	else {
+	  $(".is-completed-guide").hide();
 	}
 }
 

@@ -5,6 +5,8 @@ if (completed){
 
   $("#recorderStart").hide();
   $("#instrument-need-checkbox").hide();
+  $(".not-completed-guide").hide();
+  $(".is-completed-guide").show();
   $button.val("Open project for collaboration");
   $button.siblings().last().val("false");
   $button.blur();
@@ -12,6 +14,8 @@ if (completed){
 
   $("#recorderStart").show();
   $("#instrument-need-checkbox").show();
+  $(".not-completed-guide").show();
+  $(".is-completed-guide").hide();
   $button.val("Mark project completed");
   $button.siblings().last().val("true");
   $button.blur();
