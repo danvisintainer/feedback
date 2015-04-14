@@ -18,15 +18,17 @@ $(document).ready(function(){
   $("#controls").on('click', '#recorderStart', function(e) {
     recorderStart();
     // playAll();
-    $(this).text("Stop");
+    $(this).text(" Stop ");
     $(this).attr('id', 'recorderStop');
+    $(this).prepend('<i class="fa fa-stop"></i>');
     e.stopPropagation();
   });
 
   $("#controls").on('click', '#recorderStop', function(e) {
     recorderStop();
-    $(this).text("Record");
+    $(this).text(" Record");
     $(this).attr('id', 'recorderStart');
+    $(this).prepend('<i class="fa fa-circle"></i>');
     e.stopPropagation();
   });
 
@@ -151,7 +153,7 @@ function showMicVisualizer() {
     waveColor     : 'black',
     interact      : false,
     cursorWidth   : 0,
-    pixelRatio    : 1
+    pixelRatio    : 0.8
   });
 
   var microphone = Object.create(WaveSurfer.Microphone);

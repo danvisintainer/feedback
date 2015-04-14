@@ -31,22 +31,20 @@
 	</div>					
 </section>
 
+
 <div id="mic-visualizer">
 
 </div>
 
-<center>
-
 <% if current_user %>
 	<div id="controls">
-	  <button id="recorderStart">Record</button>
-	  <!-- <button id="recorderStop">Stop</button> -->
+		<center>
+
+	  <button type="button" id="recorderStart" class="btn btn-danger btn-round btn-long"><i class="fa fa-circle"></i> Record</button>
+
+	  <button type="button" id="playAll" class="btn btn-success btn-round btn-long"><i class="fa fa-play"></i> Play All</button>
 	</div>
 <% end %>
-
-<button id="playAll">Play All!</button>
-
-</center>
 
 <div id="all-tracks">
 

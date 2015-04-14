@@ -21,6 +21,10 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 
+button.btn-long {
+  width: 15%;
+}
+
 div.main {
   margin-top: 50px;
 }
