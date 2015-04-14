@@ -45,6 +45,7 @@ $(document).ready(function(){
 
   $("#playAll").on('click', function(e) {
     playAll();
+    debugger;
     e.stopPropagation();
   });
 
@@ -89,18 +90,23 @@ function makeWavesurfer(div) {
     wavesurfer.on('error', hideProgress);
   });
 
-  div.append($('<button/>', {
-    text: "Play / Pause",
-    click: function () { wavesurfer.playPause(); }
-  }));
+  // div.append($('<button/>', {
+  //   text: '<b>Play / Pause<b>"',
+  //   click: function () { wavesurfer.playPause(); }
+  // }));
 
-  div.append($('<button/>', {
-    text: "Stop",
-    click: function () { wavesurfer.stop(); }
-  }));
+  div // Replace this selector with one suitable for you  
+  .append('<button type="button" class="btn btn-border-d btn-round play"><i class="fa fa-play"> / <i class="fa fa-pause"></button>') // Create the element   // Ask jQuery UI to buttonize it  
+  .click(function(){ wavesurfer.playPause(); }); // Add a click handler
 
-  $(div).find("button").first().addClass("play");
-  $(div).find("button").last().addClass("stop")
+
+  // div.append($('<button/>', {
+  //   text: "Stop",
+  //   click: function () { wavesurfer.stop(); }
+  // }));
+
+  // $(div).find("button").first().addClass("play");
+  // $(div).find("button").last().addClass("stop");
 
 }
 
