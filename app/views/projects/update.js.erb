@@ -6,9 +6,11 @@ $("#instrument-need-checkbox").toggle()
 if ($button.val() === "Project Complete"){
 	$button.val("Allow Collaboration");
 	$button.siblings().last().val("false");
+	$button.blur();
 }
 else {
 	$button.val("Project Complete");
 	$button.siblings().last().val("true");
+	$button.blur();
 }
 
