@@ -21,6 +21,16 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 
+div#mic-visualizer {
+  padding-top: 35px;
+  padding-bottom: 40px;
+}
+
+div#controls {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 button.btn-long {
   width: 15%;
 }

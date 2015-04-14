@@ -19,19 +19,6 @@
 		</section>
 </div>
 
-<section class="module">
-	<div class="container">
-		<div class="row">
-
-			<% if current_user && project_owner? %>
-				<%= render 'options' %>
-			<% end %>
-				
-		</div>
-	</div>					
-</section>
-
-
 <div id="mic-visualizer">
 
 </div>
@@ -58,6 +45,19 @@
 <% if current_user && project_owner? %>
   <%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn', id: @project.id %>
 <% end %>
+
+
+<section class="module">
+	<div class="container">
+		<div class="row">
+
+			<% if current_user && project_owner? %>
+				<%= render 'options' %>
+			<% end %>
+				
+		</div>
+	</div>					
+</section>
 
 
 <br>
