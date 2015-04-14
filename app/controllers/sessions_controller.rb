@@ -9,8 +9,10 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to '/'
+    #If creating the session fails, redirect to login and display a message
     else
       redirect_to '/login'
+      flash[:notice] = "Failed to log in. Please try again."
     end
   end
 
