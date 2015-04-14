@@ -1,8 +1,8 @@
 <% if !@project.completed %>
-		<%= button_to "Project Complete", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn', id: @project.id, :form => { :id => "collab-btn" } %>
+		<%= button_to "Mark project completed", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn btn btn-d btn-round btn-lg', id: @project.id, :form => { :id => "collab-btn" } %>
 
 <% else %>
-		<%= button_to "Allow Collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn', id: @project.id, :form => { :id => "collab-btn" } %>
+		<%= button_to "Mark project open", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn btn btn-d btn-round btn-lg', id: @project.id, :form => { :id => "collab-btn" } %>
 <% end %>
 
 <div id="instrument-need-checkbox">
@@ -17,7 +17,7 @@
 		<%= f.label :keyboards %>
 		<%= f.check_box :keyboards %>
 		<%= f.hidden_field :project_id, :value => @project.id %>
-		<%= f.submit "Save" %>
+		<%= f.submit "Save", class: "btn btn-d btn-round btn-sm" %>
 <% end %>
 
 

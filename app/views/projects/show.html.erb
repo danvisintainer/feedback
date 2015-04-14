@@ -2,15 +2,32 @@
 <script>
 	completedCheck();
 </script>
-<center>
-<h1><%=@project.name  %></h1>
-</p><%=@project.description  %></p>
 
+<div class="main">
+<section class="module-small bg-dark bg-dark-30" data-background="assets/images/section-8.jpg">
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-sm-6 col-sm-offset-3">
+
+
+						<h1 class="module-title font-alt"><%=@project.name  %></h1>
+						<div class="module-subtitle font-serif mb-0"><%=@project.description %></div>
+					</div>
+				</div><!-- .row -->
+				<div class="row">
+				</div>
+			</div>
+		</section>
+</div>
+
+<center>					
 <% if current_user && project_owner? %>
 	<%= render 'options' %>
 <% end %>
-
 </center>
+
 <div id="mic-visualizer">
 
 </div>
