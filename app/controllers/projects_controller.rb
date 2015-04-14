@@ -39,6 +39,11 @@ class ProjectsController < ApplicationController
         @project.instrument_need = InstrumentNeed.new
       end
 
+      puts "----------------------------------------------"
+      puts "completed status is now: #{@project.completed}"
+      puts "----------------------------------------------"
+
+      # gon.project_completed = @project.completed
       respond_to do |f|
         f.js { }
       end

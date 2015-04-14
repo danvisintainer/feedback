@@ -1,14 +1,18 @@
+var completed = <%= @project.completed %>;
+var $button = $("input.project-complete-btn");
 
-var $button = $(document).find("input[class^=project-complete-btn]")
-$("#recorderStart").toggle()
-$("#instrument-need-checkbox").toggle()
+if (completed){
 
-if ($button.val() === "Project Complete"){
-	$button.val("Allow Collaboration");
-	$button.siblings().last().val("false");
+  $("#recorderStart").hide();
+  $("#instrument-need-checkbox").hide();
+  $button.val("Open project for collaboration");
+  $button.siblings().last().val("false");
+  $button.blur();
+} else if (completed === false) {
+
+  $("#recorderStart").show();
+  $("#instrument-need-checkbox").show();
+  $button.val("Mark project completed");
+  $button.siblings().last().val("true");
+  $button.blur();
 }
-else {
-	$button.val("Project Complete");
-	$button.siblings().last().val("true");
-}
-
