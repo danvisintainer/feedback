@@ -13,4 +13,23 @@ class User < ActiveRecord::Base
     ["Guitar", "Bass", "Drums", "Keyboards"]
   end
 
+  def musician_type
+    case self.primary_instrument
+    when "Guitar"
+      "Guitarist"
+    when "Bass"
+      "Bassist"
+    when "Drums"
+      "Drummer"
+    when "Vocals"
+      "Vocalist"
+    when "Saxophone"
+      "Saxophonist"
+    when "Keyboards"
+      "Keyboardist"
+    when "Other"
+      "Musician"
+    end
+  end
+
 end
