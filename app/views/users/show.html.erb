@@ -1,37 +1,39 @@
-<section class="module-small bg-dark bg-dark-30" data-background="assets/images/section-8.jpg" style="background-image: url(file:///Users/ericfries/Desktop/Rival-v1.4/Site/assets/images/section-8.jpg);">
-	<div class="container">
+<div class="main">
+	<section class="module-small bg-dark bg-dark-30" data-background="assets/images/section-8.jpg" style="background-image: url(file:///Users/ericfries/Desktop/Rival-v1.4/Site/assets/images/section-8.jpg);">
+		<div class="container">
 
-		<div class="row">
+			<div class="row">
 
-			<div class="col-sm-6 col-sm-offset-3">
+				<div class="col-sm-6 col-sm-offset-3">
 
-				<h1 class="module-title font-alt">Projects by <%= @user.name %></h1>
+					<h1 class="module-title font-alt">Projects by <%= @user.name %></h1>
 
-			</div>
+				</div>
 
-		</div><!-- .row -->
+			</div><!-- .row -->
 
-	</div>
-</section>
+		</div>
+	</section>
 
-<section class="module">
-	<div class="container">
+	<section class="module">
+		<div class="container">
 
-		<div class="row">
+			<div class="row">
 
-			<!-- Content column start -->
-			<div class="col-sm-8">
+				<!-- Content column start -->
+				<div class="col-sm-8">
 
-				<!-- Post text only start -->
-				<div class="post">
+					<!-- Post text only start -->
+					<div class="post">
 
-				<%= render @user.projects.reverse %>
+					<%= render @user.projects.reverse %>
 
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
-			
-<!-- Display primary instrument form -->
-<%= render 'instrument' %>
+	</section>
+				
+	<!-- Display primary instrument form -->
+	<%= render 'instrument' %>
+</div>
