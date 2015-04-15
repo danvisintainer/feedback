@@ -7,12 +7,28 @@ class User < ActiveRecord::Base
   has_many :comments
   has_secure_password
 
-
-
   def self.instruments
     ["Guitar", "Bass", "Drums", "Keyboards", "Saxophone", "Vocals", "Other"]
 
   end
 
+  def musician_type
+    case self.primary_instrument
+    when "Guitar"
+      "Guitarist"
+    when "Bass"
+      "Bassist"
+    when "Drums"
+      "Drummer"
+    when "Vocals"
+      "Vocalist"
+    when "Saxophone"
+      "Saxophonist"
+    when "Keyboards"
+      "Keyboardist"
+    when "Other"
+      "Musician"
+    end
+  end
 
 end
