@@ -40,31 +40,6 @@
 </div>
 <br>
 
-
-
-<% if current_user && project_owner? %>
-  <%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn', id: @project.id %>
-<% end %>
-
-<section class="module">
-	<div class="container">
-		<div class="row">
-			<% if current_user && project_owner? %>
-				<%= render 'options' %>
-			<% end %>
-		</div>
-	</div>					
-</section>
-
-<br>
-<br>
-
-
-</a>
-</div>
-
-
-
 <!-- COMMENTS -->
 <section class="module">
 	<div class="container">
@@ -100,6 +75,16 @@
 		</div>
 	</div>
 </section>
+
+<div class="module-small bg-dark">
+	<div class="container">
+		<div class="row">
+			<% if current_user && project_owner? %>
+				<%= render 'options' %>
+			<% end %>
+		</div><!-- .row -->
+	</div>
+</div>
 
 <script>
 	completedCheck();
