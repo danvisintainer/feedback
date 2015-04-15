@@ -21,6 +21,15 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 
+section.user-page-module {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#start-new-button {
+  margin-bottom: 20px;
+}
+
 div.whole-comment {
  padding-top: 18px;
  clear: both;

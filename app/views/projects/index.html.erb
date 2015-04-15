@@ -2,318 +2,165 @@
 <div class="main">
 
  <section class="module-small bg-dark bg-dark-30" data-background="assets/images/section-8.jpg" style="background-image: url(file:///Users/matthewstines/Desktop/Rival-v1.4/Site/assets/images/section-8.jpg);">
-      <div class="container">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-6 col-sm-offset-3">
+
+        <h1 class="module-title font-alt">Community Projects</h1>
+        <div class="module-subtitle font-serif mb-0">
+          A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+        </div>
+
+      </div>
+
+    </div><!-- .row -->
+
+  </div>
+
+</section>
+
+<section class="module user-page-module">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-offset-3">
+        <%= link_to "Start a new jam!", '/projects/new', class: 'btn btn-g btn-round btn-block', id: 'start-new-button' %>
+        <!-- <button type="button" id="start-new-button" action="/projects/new" class="btn btn-g btn-round btn-block">Start a new jam!</button><br> -->
+        
+      </div>
+    </div>
+
+
+
+    <% if current_user && current_user.primary_instrument && !@personalized_projects.empty? %>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="font-alt">Projects Looking For <%= current_user.primary_instrument %> Tracks</h2>
+          <hr class="divider-w mt-10 mb-20">
+          <% @personalized_projects.each do |project| %>
+            <%= link_to project.name, project %><br>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    
+    <% if !@open_projects.empty? %>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="font-alt">Open Projects</h2>
+          <hr class="divider-w mt-10 mb-20">
+
+          <% @open_projects.each do |project| %>
+            <h4 class="font-alt"><%= link_to project.name, project %></h4><br>
+          <% end %>
+        </div>
+      </div>
+    <% end %>  
+
+    <% if !@completed_projects.empty? %>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="font-alt">Completed Projects</h2>
+          <hr class="divider-w mt-10 mb-20">
+
+          <% @completed_projects.each do |project| %>
+            <h4 class="font-alt"><%= link_to project.name, project %></h4><br>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</section>
+
+<!-- <section class="module">
+  <div class="container">
 
         <div class="row">
 
-          <div class="col-sm-6 col-sm-offset-3">
+          <div class="col-sm-8 col-sm-offset-2">
 
-            <h1 class="module-title font-alt">Community Projects</h1>
-            <div class="module-subtitle font-serif mb-0">
-              A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
-            </div>
+            <h4 class="font-alt mb-0">Paragraph Examples</h4>
+            <hr class="divider-w mt-10 mb-20">
 
-          </div>
+            <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
+            <p>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.</p>
 
-        </div><!-- .row -->
+            <h4 class="font-alt mb-0">Blockquote</h4>
+            <hr class="divider-w mt-10 mb-20">
+
+            <blockquote>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            </blockquote>
+
+            <h4 class="font-alt mb-0">Lists</h4>
+            <hr class="divider-w mt-10 mb-20">
+
+            <div class="row">
+
+              <div class="col-sm-6">
+                <h5>Unordered</h5>
+                <ul>
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>Consectetur adipiscing elit</li>
+                  <li>Nulla volutpat aliquam velit
+                    <ul>
+                      <li>Phasellus iaculis neque</li>
+                      <li>Purus sodales ultricies</li>
+                    </ul>
+                  </li>
+                  <li>Faucibus porta lacus fringilla vel</li>
+                </ul>
+              </div>
+
+              <div class="col-sm-6">
+                <h5>Ordered</h5>
+                <ol>
+                  <li>Lorem ipsum dolor sit amet</li>
+                  <li>Consectetur adipiscing elit</li>
+                  <li>Nulla volutpat aliquam velit
+                    <ul>
+                      <li>Phasellus iaculis neque</li>
+                      <li>Ac tristique libero volutpat at</li>
+                    </ul>
+                  </li>
+                  <li>Eget porttitor lorem</li>
+                </ol>
+              </div>
+
+            </div> --><!-- .row
+
+            <h4 class="font-alt mb-0">Heading</h4>
+            <hr class="divider-w mt-10 mb-20">
+
+            <div class="row">
+
+              <div class="col-sm-6">
+                <h1>Heading 1</h1>
+                <h2>Heading 2</h2>
+                <h3>Heading 3</h3>
+                <h4>Heading 4</h4>
+                <h5>Heading 5</h5>
+                <h6>Heading 6</h6>
+              </div>
+
+              <div class="col-sm-6">
+                <h1 class="font-alt">Heading 1</h1>
+                <h2 class="font-alt">Heading 2</h2>
+                <h3 class="font-alt">Heading 3</h3>
+                <h4 class="font-alt">Heading 4</h4>
+                <h5 class="font-alt">Heading 5</h5>
+                <h6 class="font-alt">Heading 6</h6>
+              </div>
+
+            </div>.row -->
+
+<!--           </div>
+
+        </div>.row
 
       </div>
-    </section>
-
-
-  
-
-  <% if current_user && current_user.primary_instrument %>
-  	<!-- <h2>Projects Looking For <%= current_user.primary_instrument %> Tracks</h2> -->
-
-  <!-- <% @personalized_projects.each do |project| %> -->
-  	<%= link_to project.name, project %><br>
-  	<% end %>
-
-  <% end %>
-
-  <!-- <h2>Completed Projects</h2> -->
-  <% @projects.each do |project| %>
-  	<% if project.completed == true %>
-  	<%= link_to project.name, project %><br>
-  	<% end %>
-  <% end %>
-
-
- <!--  <h2>Open Projects</h2> -->
-  <% @projects.each do |project| %>
-  	<% if project.completed == false %>
-  	<%= link_to project.name, project %><br>
-  	<% end %>
-  <% end %>
-  
-</div>
-
-<section class="module">
-      <div class="container">
-
-        <!-- Content column start -->
-        <div class="row multi-columns-row post-columns">
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-              
-
-              <div class="post-header font-alt">
-                <h2 class="module-title font-alt"><a href="blog-single-right.html">Projects Looking For <%= current_user.primary_instrument %> Tracks</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-             
-
-              <div class="post-header font-alt">
-                <h2 class="module-title font-alt"><a href="blog-single-right.html">Completed Projects</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              <div class="post-entry">
-                <p></p>
-              </div>
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-              
-
-              <div class="post-header font-alt">
-                <h2 class="module-title font-alt"><a href="blog-single-right.html">Open Projects</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              <div class="post-entry">
-                <p></p>
-              </div>
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-              
-
-              <div class="post-header font-alt">
-                <h2 class="post-title"><a href="blog-single-right.html">Plane in the field</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              <div class="post-entry">
-                <p></p>
-              </div>
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-             
-
-              <div class="post-header font-alt">
-                <h2 class="post-title"><a href="blog-single-right.html">Clock</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              <div class="post-entry">
-                <p></p>
-              </div>
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-             
-
-              <div class="post-header font-alt">
-                <h2 class="post-title"><a href="blog-single-right.html">Lighthouse to the shore</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              <div class="post-entry">
-                <p></p>
-              </div>
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-             
-
-              <div class="post-header font-alt">
-                <h2 class="post-title"><a href="blog-single-right.html">Our trip to the Alps</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              <div class="post-entry">
-                <p></p>
-              </div>
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-              
-
-              <div class="post-header font-alt">
-                <h2 class="post-title"><a href="blog-single-right.html">Shore after the tide</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              <div class="post-entry">
-                <p></p>
-              </div>
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-          <!-- Post item start -->
-          <div class="col-sm-6 col-md-4 col-lg-4">
-
-            <div class="post">
-
-              
-
-              <div class="post-header font-alt">
-                <h2 class="post-title"><a href="blog-single-right.html">We in New Zealand</a></h2>
-                <div class="post-meta">
-                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
-                </div>
-              </div>
-
-              <div class="post-entry">
-                <p></p>
-              </div>
-
-              <div class="post-more">
-                <a href="blog-single-right.html" class="more-link">Read more</a>
-              </div>
-
-            </div>
-
-          </div>
-          <!-- Post item end -->
-
-        </div>
-        <!-- Content column start -->
-
-        <!-- Pagination start-->
-        <div class="pagination font-alt">
-          <a href="#"><i class="fa fa-angle-left"></i></a>
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#"><i class="fa fa-angle-right"></i></a>
-        </div>
-        <!-- Pagination end -->
-
-      </div>
-    </section>
-
-
-   
+</section> -->
 
 

@@ -13,6 +13,10 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+
+    @open_projects = @projects.select {|p| !p.completed}
+    @completed_projects = @projects.select {|p| p.completed}
+
     if current_user
       @personalized_projects =  Project.joins(:instrument_need).where("#{current_user.primary_instrument} = '1'")
     end 
