@@ -1,14 +1,23 @@
-<% if current_user == @user %>
-	<% if current_user.primary_instrument %>
-		<h2>Change Primary Instrument</h2>
-	<% else %>
-		<h2>Set Primary Instrument</h2>
-	<% end %>
+<div class="col-sm-6">
 
-	<%= form_for @user, :method => :patch do |f| %>
+	<!-- Widget start -->
+	<div class="widget">
+		
+		<% if current_user == @user %>
+			<% if current_user.primary_instrument %>
+				<h5 class="widget-title font-alt">Change Primary Instrument</h5>
+			<% else %>
+				<h5 class="widget-title font-alt">Set Primary Instrument</h5>
+			<% end %>
 
-		<%= f.label :primary_instrument %>
-		<%= f.select :primary_instrument, options_for_select(@instruments), :selected => @user.primary_instrument %><br>
-		<%= f.submit "Set Instrument" %>
-	<% end %>
-<% end %>
+			<%= form_for @user, :method => :patch do |f| %>
+
+				<%= f.label :primary_instrument %>
+				<%= f.select :primary_instrument, options_for_select(@instruments), :selected => @user.primary_instrument %><br><br>
+				<center><%= f.submit "Set Instrument", class: 'btn btn-g btn-round' %></center>
+			<% end %>
+		<% end %>
+	</div>
+	<!-- Widget end -->
+
+</div>

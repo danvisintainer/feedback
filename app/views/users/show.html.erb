@@ -23,14 +23,39 @@
 
 	<section class="module">
 		<div class="container">
+			<%= render @user.projects.reverse %>
+		</div>
+	</section>
+</div>
+
+<div class="module-small bg-dark">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="widget">
+					<h5 class="widget-title font-alt">User Settings</h5><br>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<!-- Display primary instrument form -->
+			<%= render 'instrument' %>
+
+			<div class="col-sm-6">
+				<div class="widget">
+					<h5 class="widget-title font-alt">Delete Account</h5>
+					<p>
+						We're sorry to see you go! Feel free to come back and jam anytime.
+					</p><br>
+					<center><button type="button" id="recorderStart" class="btn btn-danger btn-round">Delete Account</button></center>
+				</div>
+			</div>
+		</div>
+
 
 			
 
-					<%= render @user.projects.reverse %>
-
-		</div>
-	</section>
-				
-	<!-- Display primary instrument form -->
-	<%= render 'instrument' %>
+	</div><!-- .row -->
 </div>
