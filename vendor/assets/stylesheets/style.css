@@ -26,7 +26,7 @@ body {
 }
 
 img {
-	max-width: 100%;
+	max-width: 100%;`
 	height: auto;
 }
 
@@ -208,7 +208,7 @@ a,
 	color: #111;
 }
 
-.btn.btn-w:hover,
+.btn.btn-w:,
 .btn.btn-w:focus {
 	background: rgba(255, 255, 255, 1);
 	color: #111;
