@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
 
 
   def self.instruments
-    ["Guitar", "Bass", "Drums", "Keyboards"]
+    ["Guitar", "Bass", "Drums", "Keyboards", "Saxophone", "Vocals", "Other"]
+
   end
+
 
 end

@@ -8,6 +8,6 @@ class InstrumentNeedsController < ApplicationController
 
   private
  def instrument_need_params
-    params.require(:instrument_need).permit(:guitar, :bass, :drums, :keyboards, :project_id)
+    params.require(:instrument_need).permit(:guitar, :bass, :drums, :keyboards, :saxophone, :vocals, :project_id)
   end
 end
