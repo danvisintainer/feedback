@@ -1,0 +1,19 @@
+<div class="post-header font-alt">
+		<h2 class="post-title">
+		<%= link_to project.name, project  %></h2>
+		<div class="post-meta">
+			By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+			if project.comments.count == 1
+				"#{project.comments.count} Comment" 
+			else
+				"#{project.comments.count} Comments" 
+			end
+				%>
+
+		</div>
+	</div>
+
+	<div class="post-entry">
+		<p><%= project.description %></p>
+	</div>
+</div>

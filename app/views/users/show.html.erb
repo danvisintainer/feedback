@@ -25,25 +25,10 @@
 						<!-- Post text only start -->
 						<div class="post">
 
-						<% @projects.reverse.each do |project| %>
 
+						<%= render @user.projects.reverse %>
+			
 
-							<div class="post-header font-alt">
-								<h2 class="post-title">
-								<%= link_to project.name, project  %></h2>
-								<div class="post-meta">
-									By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= project.comments.count %> Comments
-								</div>
-							</div>
-
-							<div class="post-entry">
-								<p><%= project.description %></p>
-							</div>
-						</div>
-						<!-- Post text only end -->
-					<% end  %>
-
-						
 <% if current_user == @user %>
 	<h2>Set Primary Instrument</h2>
 	<%= form_for @user, :method => :patch do |f| %>
