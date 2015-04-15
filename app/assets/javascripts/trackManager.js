@@ -45,7 +45,6 @@ $(document).ready(function(){
 
   $("#playAll").on('click', function(e) {
     playAll();
-    debugger;
     e.stopPropagation();
   });
 

@@ -34,6 +34,10 @@
 		<%= f.check_box :drums %>
 		<%= f.label :keyboards %>
 		<%= f.check_box :keyboards %>
+		<%= f.label :saxophone %>
+		<%= f.check_box :saxophone %>
+		<%= f.label :vocals %>
+		<%= f.check_box :vocals %>
 		<%= f.hidden_field :project_id, :value => @project.id %>
 		<%= f.submit "Invite", class: "btn btn-d btn-round btn-sm" %>
 <% end %>

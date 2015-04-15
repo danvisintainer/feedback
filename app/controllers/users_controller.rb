@@ -13,7 +13,9 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    user.avatar_url = "guitar.jpeg"
+    user.avatar_url = "#{user.primary_instrument.to_s}.jpg"
+    
+    binding.pry
     if user.save
       session[:user_id] = user.id
       redirect_to '/'
@@ -25,6 +27,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(:primary_instrument => params[:user][:primary_instrument])
+    @user.avatar_url = "#{@user.primary_instrument.to_s}.jpg"
+    @user.save
+    binding.pry
     redirect_to user_path(current_user)
   end
 
