@@ -1,19 +1,39 @@
-<div class="post-header font-alt">
-		<h2 class="post-title">
-		<%= link_to project.name, project  %></h2>
-		<div class="post-meta">
-			By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
-			if project.comments.count == 1
-				"#{project.comments.count} Comment" 
-			else
-				"#{project.comments.count} Comments" 
-			end
-				%>
+<% if @project_iterator_count == 0 %>
+	<div class="row">
+<% end %>
 
-		</div>
+				<!-- Content column start -->
+				<div class="col-sm-6">
+
+					<!-- Post text only start -->
+					<div class="post">
+
+<div class="post-header font-alt">
+	<h2 class="post-title">
+		<%= link_to project.name, project  %>
+	</h2>
+
+	<div class="post-meta">
+		By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+		if project.comments.count == 1
+			"#{project.comments.count} Comment" 
+		else
+			"#{project.comments.count} Comments" 
+		end
+			%>
+
 	</div>
+</div>
 
 	<div class="post-entry">
 		<p><%= project.description %></p>
 	</div>
+</div>
+
+<!-- for the purpose of "squaring" rows -->
+<% @project_iterator_count += 1 %>
+<% if @project_iterator_count == 2 %>
+	<% @project_iterator_count = 0  %>
+	</div>
+<% end %>
 </div>
