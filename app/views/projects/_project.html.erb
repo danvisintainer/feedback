@@ -9,18 +9,22 @@
 					<div class="post">
 
 <div class="post-header font-alt">
-	<h2 class="post-title">
-		<%= link_to project.name, project  %>
-	</h2>
-
-	<div class="post-meta">
-		By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
-		if project.comments.count == 1
-			"#{project.comments.count} Comment" 
-		else
-			"#{project.comments.count} Comments" 
-		end
-			%>
+		<h2 class="post-title">
+		<%= link_to project.name, project  %></h2>
+		<div class="post-meta">
+			By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+			if project.comments.count == 1
+				"#{project.comments.count} Comment" 
+			else
+				"#{project.comments.count} Comments" 
+			end
+				%> | <%= 
+			if project.tracks.count == 1
+				"#{project.tracks.count} Track" 
+			else
+				"#{project.tracks.count} Tracks" 
+			end
+				 %>
 
 	</div>
 </div>
