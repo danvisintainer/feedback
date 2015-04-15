@@ -1,10 +1,10 @@
 <div class="main">
-<section class="module bg-dark bg-dark-60" data-background="<%= asset_path 'section-2.jpg' %>">
+  <section class="module bg-dark bg-dark-60" data-background="<%= asset_path 'section-2.jpg' %>">
 
     <div class="hs-caption">
       <div class="caption-content">
         <div class="hs-title-size-1 font-alt mb-30">
-          Wanna see something cool?
+          Create + Collaborate
         </div>
         <div class="hs-title-size-4 font-alt mb-40">
           We are DANERICMATT
@@ -12,9 +12,45 @@
         <a href="#" id="login-button" class="btn btn-border-w btn-round">Sign in and jam</a>
       </div>
     </div>
-
   </section >
+  <section id="about" class="module">
+    <div class="container">
+      <div class="row"
+        <div class="col-sm-8 col-sm-offset-2">
+          <h2 class="module-title font-alt">Welcome to DANERICMATT</h2>
+          <div class="module-subtitle font-serif large-text">
+                DANERICMATT is a collaborative music platform for the creation and sharing of short musical ideas. <br>Create a new audio project or collaborate with others by adding a track to an existing project. <br><a href="#about-2" class="section-scroll"><i class="fa fa-angle-down"></i></a>
+              </div>
+        </div>
+      </div>
 
+    </div>
+  </section>
 
+  <section id="about-2" class="module">
+    <div class="container">
+      <div class="row"
+        <div class="col-sm-8 col-sm-offset-2">
+          <h2 class="module-title font-alt">ABOUT</h2>
+          <div class="module-subtitle font-serif large-text">
+              DANERICMATT is a Ruby on Rails application created by <%=link_to "Dan Visintainer", "http://people.flatironschool.com/profiles/dan-visintainer" %>, <%=link_to "Eric Fries", "http://people.flatironschool.com/profiles/eric-fries" %> and <%= link_to "Matthew Stines", "http://people.flatironschool.com/profiles/matthew-stines" %> at <%= link_to "The Flatiron School", "http://flatironschool.com/" %>.<br><a href="#thanks" class="section-scroll"><i class="fa fa-angle-down"></i></a>
+              </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section id="thanks" class="module">
+    <div class="container">
+      <div class="row"
+        <div class="col-sm-8 col-sm-offset-2">
+          <center><h2 class="module-title font-alt">THANKS TO...</h2></center>
+          <div class="module-subtitle font-serif">
+                DANERICMATT is powered in part by the <%=link_to "LAME MP3 encoder", "http://lame.sourceforge.net/" %> and <%=link_to "Wavesurfer.js", "http://www.wavesurfer.fm/" %>.<br>
+                DANERICMATT uses awesome icons from <%=link_to "The Noun Project", "https://thenounproject.com/" %> created by Juan Pablo Bravo, Dara Ullrich, Serhat Ozirik, Gustovo Perez Rangel, Melvin Salas, and Dream Icons.
+<!--               </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
