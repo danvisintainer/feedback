@@ -1,2 +1,8 @@
-<p><a href=<%= "#{user_path(comment.user)}" %>><img src="<%= comment.user.avatar_url %>"></a><%= "#{comment.user.name}: #{comment.body}" %></p>
-  
+<div class="whole-comment">
+    <div class="project-user-comment-picture">
+      <a href=<%= "#{user_path(comment.user)}"%>><img src="<%= comment.user.avatar_url %>"></a>
+    </div>
+    <div class="project-user-comment-body">
+      <p><%= "#{comment.user.name}: #{comment.body}" %></p>
+    </div>
+</div>

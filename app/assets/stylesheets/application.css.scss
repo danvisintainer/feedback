@@ -21,6 +21,37 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 
+div.whole-comment {
+ padding-top: 18px;
+ clear: both;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+div.project-user-comment-body {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+div.project-user-comment-picture {
+  padding-right: 5px;
+  float: left; 
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 div.comment-input {
   padding-bottom: 30px;
 }
@@ -94,8 +125,3 @@ div.main {
 .btn:focus {
   outline: none;
 }
-
-
-
-
-
