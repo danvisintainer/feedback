@@ -1,27 +1,319 @@
-<h1>Community Projects</h1>
 
-<% if current_user && current_user.primary_instrument %>
-	<h2>Projects Looking For <%= current_user.primary_instrument %> Tracks</h2>
+<div class="main">
 
-<% @personalized_projects.each do |project| %>
-	<%= link_to project.name, project %><br>
-	<% end %>
+ <section class="module-small bg-dark bg-dark-30" data-background="assets/images/section-8.jpg" style="background-image: url(file:///Users/matthewstines/Desktop/Rival-v1.4/Site/assets/images/section-8.jpg);">
+      <div class="container">
 
-<% end %>
+        <div class="row">
 
-<h2>Completed Projects</h2>
-<% @projects.each do |project| %>
-	<% if project.completed == true %>
-	<%= link_to project.name, project %><br>
-	<% end %>
-<% end %>
+          <div class="col-sm-6 col-sm-offset-3">
+
+            <h1 class="module-title font-alt">Community Projects</h1>
+            <div class="module-subtitle font-serif mb-0">
+              A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+            </div>
+
+          </div>
+
+        </div><!-- .row -->
+
+      </div>
+    </section>
 
 
-<h2>Open Projects</h2>
-<% @projects.each do |project| %>
-	<% if project.completed == false %>
-	<%= link_to project.name, project %><br>
-	<% end %>
-<% end %>
+  
+
+  <% if current_user && current_user.primary_instrument %>
+  	<!-- <h2>Projects Looking For <%= current_user.primary_instrument %> Tracks</h2> -->
+
+  <!-- <% @personalized_projects.each do |project| %> -->
+  	<%= link_to project.name, project %><br>
+  	<% end %>
+
+  <% end %>
+
+  <!-- <h2>Completed Projects</h2> -->
+  <% @projects.each do |project| %>
+  	<% if project.completed == true %>
+  	<%= link_to project.name, project %><br>
+  	<% end %>
+  <% end %>
+
+
+ <!--  <h2>Open Projects</h2> -->
+  <% @projects.each do |project| %>
+  	<% if project.completed == false %>
+  	<%= link_to project.name, project %><br>
+  	<% end %>
+  <% end %>
+  
+</div>
+
+<section class="module">
+      <div class="container">
+
+        <!-- Content column start -->
+        <div class="row multi-columns-row post-columns">
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+              
+
+              <div class="post-header font-alt">
+                <h2 class="module-title font-alt"><a href="blog-single-right.html">Projects Looking For <%= current_user.primary_instrument %> Tracks</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+             
+
+              <div class="post-header font-alt">
+                <h2 class="module-title font-alt"><a href="blog-single-right.html">Completed Projects</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              <div class="post-entry">
+                <p></p>
+              </div>
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+              
+
+              <div class="post-header font-alt">
+                <h2 class="module-title font-alt"><a href="blog-single-right.html">Open Projects</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              <div class="post-entry">
+                <p></p>
+              </div>
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+              
+
+              <div class="post-header font-alt">
+                <h2 class="post-title"><a href="blog-single-right.html">Plane in the field</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              <div class="post-entry">
+                <p></p>
+              </div>
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+             
+
+              <div class="post-header font-alt">
+                <h2 class="post-title"><a href="blog-single-right.html">Clock</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              <div class="post-entry">
+                <p></p>
+              </div>
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+             
+
+              <div class="post-header font-alt">
+                <h2 class="post-title"><a href="blog-single-right.html">Lighthouse to the shore</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              <div class="post-entry">
+                <p></p>
+              </div>
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+             
+
+              <div class="post-header font-alt">
+                <h2 class="post-title"><a href="blog-single-right.html">Our trip to the Alps</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              <div class="post-entry">
+                <p></p>
+              </div>
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+              
+
+              <div class="post-header font-alt">
+                <h2 class="post-title"><a href="blog-single-right.html">Shore after the tide</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              <div class="post-entry">
+                <p></p>
+              </div>
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+          <!-- Post item start -->
+          <div class="col-sm-6 col-md-4 col-lg-4">
+
+            <div class="post">
+
+              
+
+              <div class="post-header font-alt">
+                <h2 class="post-title"><a href="blog-single-right.html">We in New Zealand</a></h2>
+                <div class="post-meta">
+                  By <a href="#">Mark Stone</a> | 23 November | 3 Comments
+                </div>
+              </div>
+
+              <div class="post-entry">
+                <p></p>
+              </div>
+
+              <div class="post-more">
+                <a href="blog-single-right.html" class="more-link">Read more</a>
+              </div>
+
+            </div>
+
+          </div>
+          <!-- Post item end -->
+
+        </div>
+        <!-- Content column start -->
+
+        <!-- Pagination start-->
+        <div class="pagination font-alt">
+          <a href="#"><i class="fa fa-angle-left"></i></a>
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#"><i class="fa fa-angle-right"></i></a>
+        </div>
+        <!-- Pagination end -->
+
+      </div>
+    </section>
+
+
+   
 
 
