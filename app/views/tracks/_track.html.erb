@@ -8,7 +8,7 @@
 
 <% elsif current_user.id == track.project.user.id || current_user.id == track.user.id%>
   <div align="right">
-  <%= link_to content_tag(:i, nil, class: 'fa fa-trash'), "/tracks/#{track.id}", method: 'delete', class: 'track-delete-btn btn btn-border-d btn-round', id: track.id %>
+  <%= link_to content_tag(:i, nil, class: 'fa fa-trash'), nil, class: 'track-delete-btn btn btn-border-d btn-round', id: track.id %>
   </div>
 <% end %>
 
