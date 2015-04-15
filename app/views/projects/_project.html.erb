@@ -8,7 +8,13 @@
 			else
 				"#{project.comments.count} Comments" 
 			end
-				%>
+				%> | <%= 
+			if project.tracks.count == 1
+				"#{project.tracks.count} Track" 
+			else
+				"#{project.tracks.count} Tracks" 
+			end
+				 %>
 
 		</div>
 	</div>
