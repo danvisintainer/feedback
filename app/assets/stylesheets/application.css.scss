@@ -21,6 +21,24 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 
+div#mic-visualizer {
+  padding-top: 35px;
+  padding-bottom: 40px;
+}
+
+div#controls {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+button.btn-long {
+  width: 15%;
+}
+
+div.main {
+  margin-top: 50px;
+}
+
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
@@ -31,35 +49,49 @@
   margin: 5px 0;
 }
 
-
-
 @-webkit-keyframes glowing {
-  0% { background-color: #800000; -webkit-box-shadow: 0 0 3px #800000; }
-  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 20px #FF0000; }
-  100% { background-color: #800000; -webkit-box-shadow: 0 0 3px #800000; }
+  0% { background-color: #d9534f; -webkit-box-shadow: 0 0 3px #d9534f; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 18px #FF0000; }
+  100% { background-color: #d9534f; -webkit-box-shadow: 0 0 3px #d9534f; }
 }
 
 @-moz-keyframes glowing {
-  0% { background-color: #800000; -moz-box-shadow: 0 0 3px #800000; }
-  50% { background-color: #FF0000; -moz-box-shadow: 0 0 20px #FF0000; }
-  100% { background-color: #800000; -moz-box-shadow: 0 0 3px #800000; }
+  0% { background-color: #d9534f; -moz-box-shadow: 0 0 3px #d9534f; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 18px #FF0000; }
+  100% { background-color: #d9534f; -moz-box-shadow: 0 0 3px #d9534f; }
 }
 
 @-o-keyframes glowing {
-  0% { background-color: #800000; box-shadow: 0 0 3px #800000; }
-  50% { background-color: #FF0000; box-shadow: 0 0 20px #FF0000; }
-  100% { background-color: #800000; box-shadow: 0 0 3px #800000; }
+  0% { background-color: #d9534f; box-shadow: 0 0 3px #d9534f; }
+  50% { background-color: #FF0000; box-shadow: 0 0 18px #FF0000; }
+  100% { background-color: #d9534f; box-shadow: 0 0 3px #d9534f; }
 }
 
 @keyframes glowing {
-  0% { background-color: #800000; box-shadow: 0 0 3px #800000; }
-  50% { background-color: #FF0000; box-shadow: 0 0 20px #FF0000; }
-  100% { background-color: #800000; box-shadow: 0 0 3px #800000; }
+  0% { background-color: #d9534f; box-shadow: 0 0 3px #d9534f; }
+  50% { background-color: #FF0000; box-shadow: 0 0 18px #FF0000; }
+  100% { background-color: #d9534f; box-shadow: 0 0 3px #d9534f; }
 }
 
-.btn.btn-border-w  {
+#recorderStop.btn.btn-danger.btn-round.btn-long  {
   -webkit-animation: glowing 1500ms infinite;
   -moz-animation: glowing 1500ms infinite;
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
 }
+
+#recorderStart.btn.btn-danger.btn-round.btn-long  {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -o-animation: none;
+  animation: none;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+
+
+
+

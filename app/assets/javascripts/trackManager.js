@@ -18,15 +18,17 @@ $(document).ready(function(){
   $("#controls").on('click', '#recorderStart', function(e) {
     recorderStart();
     // playAll();
-    $(this).text("Stop");
+    $(this).text(" Stop ");
     $(this).attr('id', 'recorderStop');
+    $(this).prepend('<i class="fa fa-stop"></i>');
     e.stopPropagation();
   });
 
   $("#controls").on('click', '#recorderStop', function(e) {
     recorderStop();
-    $(this).text("Record");
+    $(this).text(" Record");
     $(this).attr('id', 'recorderStart');
+    $(this).prepend('<i class="fa fa-circle"></i>');
     e.stopPropagation();
   });
 
@@ -87,18 +89,23 @@ function makeWavesurfer(div) {
     wavesurfer.on('error', hideProgress);
   });
 
-  div.append($('<button/>', {
-    text: "Play / Pause",
-    click: function () { wavesurfer.playPause(); }
-  }));
+  // div.append($('<button/>', {
+  //   text: '<b>Play / Pause<b>"',
+  //   click: function () { wavesurfer.playPause(); }
+  // }));
 
-  div.append($('<button/>', {
-    text: "Stop",
-    click: function () { wavesurfer.stop(); }
-  }));
+  div // Replace this selector with one suitable for you  
+  .append('<button type="button" class="btn btn-border-d btn-round play"><i class="fa fa-play"> / <i class="fa fa-pause"></button>') // Create the element   // Ask jQuery UI to buttonize it  
+  .click(function(){ wavesurfer.playPause(); }); // Add a click handler
 
-  $(div).find("button").first().addClass("play");
-  $(div).find("button").last().addClass("stop")
+
+  // div.append($('<button/>', {
+  //   text: "Stop",
+  //   click: function () { wavesurfer.stop(); }
+  // }));
+
+  // $(div).find("button").first().addClass("play");
+  // $(div).find("button").last().addClass("stop");
 
 }
 
@@ -151,7 +158,7 @@ function showMicVisualizer() {
     waveColor     : 'black',
     interact      : false,
     cursorWidth   : 0,
-    pixelRatio    : 1
+    pixelRatio    : 0.8
   });
 
   var microphone = Object.create(WaveSurfer.Microphone);

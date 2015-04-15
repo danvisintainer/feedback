@@ -1,10 +1,7 @@
 <%= include_gon %>
-<script>
-	completedCheck();
-</script>
 
 <div class="main">
-<section class="module-small bg-dark bg-dark-30" data-background="assets/images/section-8.jpg">
+	<section class="module-small bg-dark bg-dark-40" data-background="assets/images/section-8.jpg">
 			<div class="container">
 
 				<div class="row">
@@ -22,28 +19,19 @@
 		</section>
 </div>
 
-<center>					
-<% if current_user && project_owner? %>
-	<%= render 'options' %>
-<% end %>
-</center>
-
 <div id="mic-visualizer">
 
 </div>
 
-<center>
-
 <% if current_user %>
 	<div id="controls">
-	  <button id="recorderStart">Record</button>
-	  <!-- <button id="recorderStop">Stop</button> -->
+		<center>
+
+	  <button type="button" id="recorderStart" class="btn btn-danger btn-round btn-long"><i class="fa fa-circle"></i> Record</button>
+
+	  <button type="button" id="playAll" class="btn btn-success btn-round btn-long"><i class="fa fa-play"></i> Play All</button>
 	</div>
 <% end %>
-
-<button id="playAll">Play All!</button>
-
-</center>
 
 <div id="all-tracks">
 
@@ -57,6 +45,17 @@
 <% if current_user && project_owner? %>
   <%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn', id: @project.id %>
 <% end %>
+
+
+<section class="module">
+	<div class="container">
+		<div class="row">
+			<% if current_user && project_owner? %>
+				<%= render 'options' %>
+			<% end %>
+		</div>
+	</div>					
+</section>
 
 
 <br>
@@ -87,3 +86,7 @@
 <div id="comments">
  <%= render @project.comments %>
 </div>
+
+<script>
+	completedCheck();
+</script>
