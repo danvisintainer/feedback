@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :require_login, only: [:create, :destroy]
 
   def new
     @project = Project.new
@@ -62,6 +63,13 @@ class ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project).permit(:name, :description)
+  end
+
+  def require_login
+    unless current_user
+    flash[:error] = "You must be logged in to create a new project."
+      redirect_to 'root'
+    end
   end
 
 end
