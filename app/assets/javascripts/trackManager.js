@@ -87,11 +87,11 @@ function makeWavesurfer(div) {
     wavesurfer.on('error', hideProgress);
   });
 
-  div.append($('<button/>', {
+  div.children().find('.left-col').append($('<button/>', {
     click: function () { wavesurfer.playPause(); }
   }));
 
-  div.append($('<button/>', {
+  div.children().find('.left-col').append($('<button/>', {
     click: function () { wavesurfer.stop(); }
   }));
 

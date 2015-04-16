@@ -1,20 +1,29 @@
-<div id="wavesurfer-set-<%= track.id %>">
+<div class="wavesurfer-set" id="wavesurfer-set-<%= track.id %>">
   <div class="row wavesurfer">
     <div class="wavesurfer-insert" audio-source="<%= track.audio.url %>">
     </div>
   </div>
 
   <div class="row info-controls">
-     Track by <%= track.user.name %>
+    <div class="col-sm-4 left-col">
+    </div>
+    <div class="col-sm-4 center-col">
+      <center>
+        <%= link_to image_tag(track.user.avatar_url, size: "32x32"), user_path(track.user)  %>
+        Track by <%= track.user.name %>
+      </center>
+    </div>
+    <div class="col-sm-4 right-col">
+      <% if current_user.nil? %>
+
+      <% elsif current_user.id == track.project.user.id || current_user.id == track.user.id%>
+
+        <%= link_to content_tag(:i, nil, class: 'fa fa-trash'), nil, class: 'track-delete-btn btn btn-border-d btn-round', id: track.id %>
+
+      <% end %>
+      
+    </div>
     <!--Displays avatar of the user who uploaded the track-->
-    <%= link_to image_tag(track.user.avatar_url, size: "32x32"), user_path(track.user)  %>
 
-    <% if current_user.nil? %>
-
-    <% elsif current_user.id == track.project.user.id || current_user.id == track.user.id%>
-
-      <%= link_to content_tag(:i, nil, class: 'fa fa-trash'), nil, class: 'track-delete-btn btn btn-border-d btn-round', id: track.id %>
-
-    <% end %>
   </div>
 </div>
