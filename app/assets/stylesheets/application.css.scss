@@ -21,6 +21,15 @@
 /*@import "bootstrap";*/
 /* Some Style from the Bootstrap Default Theme */
 
+div.wavesurfer-set {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+div.right-col {
+  text-align: right;
+}
+
 section.user-page-module {
   padding-top: 70px;
   padding-bottom: 70px;
@@ -71,8 +80,8 @@ div#mic-visualizer {
 }
 
 div#controls {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 button.btn-long {
