@@ -13,40 +13,59 @@
 
  <%= render "layouts/header" %>
 
-
-  <%= yield %>
-
-
 <!-- MODAL CODE -->
 
 <div class="modal fade" id="global-modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title font-alt mb-0">Log In</h4>
-        </div>
-        <div class="modal-body">
-          <!-- login form -->
-          <div id="log-in-form">
-            <div class="form-group">
-              <button type="button" id="twitter-log-in-button" action="/auth/twitter" class="btn btn-info btn-round btn-block"><i class="fa fa-twitter"></i> Log in with Twitter</button><br>
-              <%= render 'sessions/form' %>
-              <button type="submit" id="switch-to-sign-up-button" class="btn btn-d btn-round btn-block">New user? Sign up</button>
-            </div>
-          </div>
-          <!-- new user form -->
-          <div id="new-user-form">
-            <%= render 'users/form' %>
-              <button type="submit" id="switch-to-log-in-button" class="btn btn-d btn-round btn-block">Already a user? Log in</button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title font-alt mb-0">Log In</h4>
+      </div>
+      <div class="modal-body">
+        <!-- login form -->
+        <div id="log-in-form">
+          <div class="form-group">
+            <button type="button" id="twitter-log-in-button" action="/auth/twitter" class="btn btn-info btn-round btn-block"><i class="fa fa-twitter"></i> Log in with Twitter</button><br>
+            <%= render 'sessions/form' %>
+            <button type="submit" id="switch-to-sign-up-button" class="btn btn-d btn-round btn-block">New user? Sign up</button>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- new user form -->
+        <div id="new-user-form">
+          <%= render 'users/form' %>
+            <button type="submit" id="switch-to-log-in-button" class="btn btn-d btn-round btn-block">Already a user? Log in</button>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="new-project-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title font-alt mb-0">New Project</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for Project.new do |f| %>
+          <%= f.text_field :name, class: 'form-control', placeholder: 'Name of the new project' %><br>
+          <%= f.text_area :description, class: 'form-control', placeholder: 'Description'  %><br>
+          <%= f.submit class: "btn btn-g btn-round btn-block" %><br>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <%= yield %>
 
 </body>
 </html>

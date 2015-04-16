@@ -7,6 +7,13 @@ $(document).ready(function() {
     });
   });
 
+  $("#new-project-link").on('click', function(e) {
+    e.preventDefault();
+    $("#new-project-modal").modal({
+      keyboard: true
+    });
+  });
+
   $("#twitter-log-in-button").on('click', function(e) {
     window.location = '/auth/twitter';
   });
