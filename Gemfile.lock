@@ -243,12 +243,6 @@ GEM
     rspec-support (3.2.2)
     rubyzip (1.1.7)
     sass (3.4.13)
-    sass-rails (5.0.3)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.1)
-      sprockets (>= 2.8, < 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
-      tilt (~> 1.1)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -339,7 +333,6 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails_12factor
   rspec-rails
-  sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
   simplecov
