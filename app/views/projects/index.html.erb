@@ -10,7 +10,7 @@
 
         <h1 class="module-title font-alt">Community Projects</h1>
         <div class="module-subtitle font-serif mb-0">
-          A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+          <!-- description goes here -->
         </div>
 
       </div>
@@ -53,7 +53,7 @@
                       <div class="post-header font-alt">
                         <h3 class="post-title"> <%= link_to project.name, project %></h3>
                         <div class="post-meta">
-                          By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+                          By <%= link_to project.user.name, project.user %> | <%= project.created_at.to_date %> | <%= 
                             if project.comments.count == 1
                               "#{project.comments.count} Comment" 
                             else
@@ -97,7 +97,7 @@
                       <div class="post-header font-alt">
                         <h3 class="post-title"> <%= link_to project.name, project %></h3>
                         <div class="post-meta">
-                          By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+                          By <%= link_to project.user.name, project.user %> | <%= project.created_at.to_date %> | <%= 
                             if project.comments.count == 1
                               "#{project.comments.count} Comment" 
                             else
@@ -140,7 +140,7 @@
                       <div class="post-header font-alt">
                         <h3 class="post-title"> <%= link_to project.name, project %></h3>
                         <div class="post-meta">
-                          By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+                          By <%= link_to project.user.name, project.user %> | <%= project.created_at.to_date %> | <%= 
                             if project.comments.count == 1
                               "#{project.comments.count} Comment" 
                             else
