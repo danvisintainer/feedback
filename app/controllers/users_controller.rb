@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(:primary_instrument => params[:user][:primary_instrument])
-    binding.pry
+   #This prevents a change in primary instrument from overwriting a stored Twitter avatar_url
     if !@user.avatar_url.start_with?("http")
       @user.avatar_url = "#{@user.primary_instrument.to_s}.jpg"
       @user.save
