@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
       redirect_to '/'
     #If creating the session fails, redirect to login and display a message
     else
-      redirect_to '/login'
       flash[:notice] = "Failed to log in. Please try again."
+      redirect_to '/'
     end
   end
 

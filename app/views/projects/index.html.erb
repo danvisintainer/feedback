@@ -25,7 +25,12 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-md-offset-3">
-        <%= link_to "Start a new project!", '/projects/new', class: 'btn btn-g btn-round btn-lg btn-block', id: 'start-new-button' %>
+        <% if current_user %>
+          <%= link_to "Start a new project!", '/projects/new', class: 'btn btn-g btn-round btn-lg btn-block', id: 'start-new-button' %>
+          <% else %>
+             <%= link_to "Sign in to create a new project!", '#', class: 'btn btn-g btn-round btn-lg btn-block', id: 'project-login-button' %>
+           <% end %>
+
       </div>
     </div>
 
