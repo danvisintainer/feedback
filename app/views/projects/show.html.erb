@@ -27,9 +27,9 @@
 	<div id="controls">
 		<center>
 
-	  <button type="button" id="recorderStart" class="btn btn-danger btn-round btn-long"><i class="fa fa-circle"></i> Record</button>
+	  <button type="button" id="recorderStart" class="btn btn-danger btn-round btn-lg btn-long"><i class="fa fa-circle"></i> Record</button>
 
-	  <button type="button" id="playAll" class="btn btn-success btn-round btn-long"><i class="fa fa-play"></i> Play All</button>
+	  <button type="button" id="playAll" class="btn btn-success btn-round btn-lg btn-long"><i class="fa fa-play"></i> Play All</button>
 	</div>
 <% end %>
 
@@ -48,7 +48,7 @@
 				<% if current_user %>
 					<%= form_for [@project, Comment.new], :remote => true do |f| %>
 	  				<div class="field">
-					    <%= f.text_area :body, class: "form-control col-lg-8", placeholder: "Provide comment here." %>
+					    <%= f.text_area :body, class: "form-control col-lg-8", placeholder: "Leave a comment" %>
 					    <%= f.hidden_field :project_id, :value => @project.id %>
 					    <%= f.hidden_field :user_id, :value => current_user.id %>
 	  				</div>
