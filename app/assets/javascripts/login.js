@@ -2,6 +2,14 @@ $(document).ready(function() {
   $('#new-user-form').hide();
 
   $("#login-button").on('click', function(e) {
+    e.preventDefault();
+    $("#global-modal").modal({
+      keyboard: true
+    });
+  });
+
+  $("#login-link").on('click', function(e) {
+    e.preventDefault();
     $("#global-modal").modal({
       keyboard: true
     });
