@@ -1,8 +1,8 @@
 <div class="col-sm-4">
 	<div class="widget">
 		<h5 class="widget-title font-alt">Complete Project</h5>
-		<p><h5 class="font-alt not-completed-guide">A completed project is locked,<br>and can no longer be edited by others.</h5></p>
-		<p><h5 class="font-alt is-completed-guide">You marked this project as completed.<br>To allow collaboration again, click this button!</h5></p>
+		<p class="not-completed-guide">A completed project is locked,<br>and can no longer be edited by others.</p>
+		<p class="is-completed-guide">You marked this project as completed.<br>To allow collaboration again, click this button!</p>
 	<% if !@project.completed %>
 		<!-- IF PROJECT IS NOT COMPLETED -->
 		<center><%= button_to "Mark project completed", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn btn btn-g btn-round btn-lg', id: @project.id, :form => { :id => "collab-btn" } %></center>
@@ -17,8 +17,8 @@
 	<div class="widget">
 		<h5 class="widget-title font-alt">Collaboration</h5>
 
-		<h5 class="font-alt not-completed-guide">Invite others to collaborate!</h5>
-		<h5 class="font-alt is-completed-guide">A project must be open for others to collaborate.</h5>
+		<p class="not-completed-guide">Invite others to collaborate!</p>
+		<p class="is-completed-guide">A project must be open for others to collaborate.</p>
 			
 		<div id="instrument-need-checkbox">
 			<ul class="icon-list">
@@ -42,9 +42,9 @@
 		<h5 class="widget-title font-alt">Delete this project</h5>
 
 		<% if current_user && project_owner? %>
-		<h5 class="font-alt">
+		<p>
 			Deleting a project will also remove all of its recorded tracks. This can't be undone!
-			</h5>
+			</p>
 	  <center><%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn btn btn-lg btn-danger btn-round', id: @project.id %></center>
 <% end %>
 	</div>
