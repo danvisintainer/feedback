@@ -103,24 +103,6 @@ function makeWavesurfer(div) {
 
 }
 
-
-
-// Play and Pause
-function play(music, pButton) {
-  // start music
-  if (music.paused) {
-    music.play();
-    // remove play, add pause
-    pButton.className = "";
-    pButton.className = "pause";
-  } else { // pause music
-    music.pause();
-    // remove pause, add play
-    pButton.className = "";
-    pButton.className = "play";
-  }
-}
-
 function playAll() {
   $.each($('.stop'), function(i, v) {
     v.click();
@@ -128,21 +110,6 @@ function playAll() {
 
   $.each($('.play'), function(i, v) {
     v.click();
-  });
-}
-
-function givePlayersListeners() {
-  $("div[id^=audio-and-player]").each(function(i, v) {
-    currentDiv = $(this);
-    music = currentDiv.find(".music")[0];
-    pButton = currentDiv.find(".play")[0];
-
-    var timeline = currentDiv.find('.timeline')[0]; // timeline
-    // timeline width adjusted for playhead
-    var playhead = currentDiv.find('.playhead')[0]; // playhead
-    var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
-
-    dynamicallyCreateEventListener(music, pButton, timeline, playhead, timelineWidth);
   });
 }
 
