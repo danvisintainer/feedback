@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     user.avatar_url = "#{user.primary_instrument.to_s}.jpg"
     
-    binding.pry
+
     if user.save
       session[:user_id] = user.id
       redirect_to '/'
@@ -27,9 +27,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(:primary_instrument => params[:user][:primary_instrument])
-    @user.avatar_url = "#{@user.primary_instrument.to_s}.jpg"
-    @user.save
     binding.pry
+    if !@user.avatar_url.start_with?("http")
+      @user.avatar_url = "#{@user.primary_instrument.to_s}.jpg"
+      @user.save
+    end
     redirect_to user_path(current_user)
   end
 
