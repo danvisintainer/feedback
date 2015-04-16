@@ -1,5 +1,5 @@
 <div class="main">
-  <section class="module bg-dark bg-dark-60" data-background="<%= asset_path 'section-2.jpg' %>">
+  <section class="module-small bg-dark bg-dark-40" data-background="<%= asset_path 'section-2.jpg' %>">
 
     <div class="hs-caption">
       <div class="caption-content">
@@ -10,6 +10,10 @@
           Feedback
         </div>
         <a href="#" id="login-button" class="btn btn-border-w btn-round">Sign in and jam</a>
+         <div class="hs-title-size-1 font-alt mb-30"><br>
+          Or
+        </div>
+        <%= link_to "Explore Community Projects", projects_path, class: "btn btn-border-w btn-round" %>
       </div>
     </div>
   </section >

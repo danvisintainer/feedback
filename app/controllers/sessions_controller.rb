@@ -8,20 +8,18 @@ class SessionsController < ApplicationController
     # Authenticate user's password
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/'
+      redirect_to projects_path
     #If creating the session fails, redirect to login and display a message
     else
-      redirect_to '/login'
       flash[:notice] = "Failed to log in. Please try again."
+      redirect_to '/'
     end
   end
 
   def create_via_twitter
     session[:access_token] = request.env['omniauth.auth']['credentials']['token']
     session[:access_token_secret] = request.env['omniauth.auth']['credentials']['secret']
-
     twitter_user = client.user(include_entities: true)
-
 
     @user = User.find_or_create_by(twitter_username: twitter_user.screen_name)
     @user.name ||= twitter_user.name
@@ -31,8 +29,7 @@ class SessionsController < ApplicationController
     @user.save
 
     session[:user_id] = @user.id
-
-    redirect_to root_path
+    redirect_to projects_path
   end
 
   def destroy
