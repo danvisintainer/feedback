@@ -26,141 +26,142 @@
     <div class="row">
       <div class="col-sm-6 col-md-offset-3">
         <%= link_to "Start a new jam!", '/projects/new', class: 'btn btn-g btn-round btn-block', id: 'start-new-button' %>
-        <!-- <button type="button" id="start-new-button" action="/projects/new" class="btn btn-g btn-round btn-block">Start a new jam!</button><br> -->
-        
       </div>
     </div>
 
 
 
     <% if current_user && current_user.primary_instrument && !@personalized_projects.empty? %>
-      <div class="row">
-        <div class="col-sm-12">
-          <h2 class="font-alt">Projects Looking For <%= current_user.primary_instrument %> Tracks</h2>
-          <hr class="divider-w mt-10 mb-20">
-          <% @personalized_projects.each do |project| %>
-            <%= link_to project.name, project %><br>
-          <% end %>
-        </div>
-      </div>
+      <% @project_iterator_count = 0 %>
+        <div class="row">
+          <div class="col-sm-12">
+            <h2 class="font-alt">Projects Looking For <%= current_user.primary_instrument %> Tracks</h2>
+            <hr class="divider-w mt-10 mb-20">
+            </div>
+          </div>
+            <% @personalized_projects.each do |project| %>
+              <% if @project_iterator_count == 0 %>
+                <div class="row">
+              <% end %>
+                  <div class="col-sm-6">
+                    <div class="post">
+                      <div class="post-header font-alt">
+                        <h3 class="post-title"> <%= link_to project.name, project %></h3>
+                        <div class="post-meta">
+                          By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+                            if project.comments.count == 1
+                              "#{project.comments.count} Comment" 
+                            else
+                              "#{project.comments.count} Comments" 
+                            end
+                              %> | <%= 
+                            if project.tracks.count == 1
+                              "#{project.tracks.count} Track" 
+                            else
+                              "#{project.tracks.count} Tracks" 
+                            end
+                               %>
+                        </div>
+                        </div>
+                          <p><%= project.description %></p>
+                    </div>
+                  </div>
+              <% @project_iterator_count += 1 %>
+              <% if @project_iterator_count == 2 %>
+                <% @project_iterator_count = 0  %>
+                </div>
+              <% end %>
+            <% end %>
+
     <% end %>
     
     <% if !@open_projects.empty? %>
-      <div class="row">
-        <div class="col-sm-12">
-          <h2 class="font-alt">Open Projects</h2>
-          <hr class="divider-w mt-10 mb-20">
-
-          <% @open_projects.each do |project| %>
-            <h4 class="font-alt"><%= link_to project.name, project %></h4><br>
-          <% end %>
-        </div>
-      </div>
-    <% end %>  
+      <% @project_iterator_count = 0 %>
+        <div class="row">
+          <div class="col-sm-12">
+            <h2 class="font-alt">Open Projects</h2>
+            <hr class="divider-w mt-10 mb-20">
+            </div>
+          </div>
+            <% @open_projects.each do |project| %>
+              <% if @project_iterator_count == 0 %>
+                <div class="row">
+              <% end %>
+                  <div class="col-sm-6">
+                    <div class="post">
+                      <div class="post-header font-alt">
+                        <h3 class="post-title"> <%= link_to project.name, project %></h3>
+                        <div class="post-meta">
+                          By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+                            if project.comments.count == 1
+                              "#{project.comments.count} Comment" 
+                            else
+                              "#{project.comments.count} Comments" 
+                            end
+                              %> | <%= 
+                            if project.tracks.count == 1
+                              "#{project.tracks.count} Track" 
+                            else
+                              "#{project.tracks.count} Tracks" 
+                            end
+                               %>
+                        </div>
+                        </div>
+                          <p><%= project.description %></p>
+                    </div>
+                  </div>
+              <% @project_iterator_count += 1 %>
+              <% if @project_iterator_count == 2 %>
+                <% @project_iterator_count = 0  %>
+                </div>
+              <% end %>
+            <% end %>
+    <% end %>
 
     <% if !@completed_projects.empty? %>
-      <div class="row">
-        <div class="col-sm-12">
-          <h2 class="font-alt">Completed Projects</h2>
-          <hr class="divider-w mt-10 mb-20">
-
-          <% @completed_projects.each do |project| %>
-            <h4 class="font-alt"><%= link_to project.name, project %></h4><br>
-          <% end %>
-        </div>
-      </div>
+      <% @project_iterator_count = 0 %>
+        <div class="row">
+          <div class="col-sm-12">
+            <h2 class="font-alt">Completed Projects</h2>
+            <hr class="divider-w mt-10 mb-20">
+            </div>
+          </div>
+            <% @completed_projects.each do |project| %>
+              <% if @project_iterator_count == 0 %>
+                <div class="row">
+              <% end %>
+                  <div class="col-sm-6">
+                    <div class="post">
+                      <div class="post-header font-alt">
+                        <h3 class="post-title"> <%= link_to project.name, project %></h3>
+                        <div class="post-meta">
+                          By <a href="#"><%= project.user.name %></a> | <%= project.created_at.to_date %> | <%= 
+                            if project.comments.count == 1
+                              "#{project.comments.count} Comment" 
+                            else
+                              "#{project.comments.count} Comments" 
+                            end
+                              %> | <%= 
+                            if project.tracks.count == 1
+                              "#{project.tracks.count} Track" 
+                            else
+                              "#{project.tracks.count} Tracks" 
+                            end
+                               %>
+                        </div>
+                        </div>
+                          <p><%= project.description %></p>
+                    </div>
+                  </div>
+              <% @project_iterator_count += 1 %>
+              <% if @project_iterator_count == 2 %>
+                <% @project_iterator_count = 0  %>
+                </div>
+              <% end %>
+            <% end %>
     <% end %>
 
   </div>
 </section>
-
-<!-- <section class="module">
-  <div class="container">
-
-        <div class="row">
-
-          <div class="col-sm-8 col-sm-offset-2">
-
-            <h4 class="font-alt mb-0">Paragraph Examples</h4>
-            <hr class="divider-w mt-10 mb-20">
-
-            <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
-            <p>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.</p>
-
-            <h4 class="font-alt mb-0">Blockquote</h4>
-            <hr class="divider-w mt-10 mb-20">
-
-            <blockquote>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            </blockquote>
-
-            <h4 class="font-alt mb-0">Lists</h4>
-            <hr class="divider-w mt-10 mb-20">
-
-            <div class="row">
-
-              <div class="col-sm-6">
-                <h5>Unordered</h5>
-                <ul>
-                  <li>Lorem ipsum dolor sit amet</li>
-                  <li>Consectetur adipiscing elit</li>
-                  <li>Nulla volutpat aliquam velit
-                    <ul>
-                      <li>Phasellus iaculis neque</li>
-                      <li>Purus sodales ultricies</li>
-                    </ul>
-                  </li>
-                  <li>Faucibus porta lacus fringilla vel</li>
-                </ul>
-              </div>
-
-              <div class="col-sm-6">
-                <h5>Ordered</h5>
-                <ol>
-                  <li>Lorem ipsum dolor sit amet</li>
-                  <li>Consectetur adipiscing elit</li>
-                  <li>Nulla volutpat aliquam velit
-                    <ul>
-                      <li>Phasellus iaculis neque</li>
-                      <li>Ac tristique libero volutpat at</li>
-                    </ul>
-                  </li>
-                  <li>Eget porttitor lorem</li>
-                </ol>
-              </div>
-
-            </div> --><!-- .row
-
-            <h4 class="font-alt mb-0">Heading</h4>
-            <hr class="divider-w mt-10 mb-20">
-
-            <div class="row">
-
-              <div class="col-sm-6">
-                <h1>Heading 1</h1>
-                <h2>Heading 2</h2>
-                <h3>Heading 3</h3>
-                <h4>Heading 4</h4>
-                <h5>Heading 5</h5>
-                <h6>Heading 6</h6>
-              </div>
-
-              <div class="col-sm-6">
-                <h1 class="font-alt">Heading 1</h1>
-                <h2 class="font-alt">Heading 2</h2>
-                <h3 class="font-alt">Heading 3</h3>
-                <h4 class="font-alt">Heading 4</h4>
-                <h5 class="font-alt">Heading 5</h5>
-                <h6 class="font-alt">Heading 6</h6>
-              </div>
-
-            </div>.row -->
-
-<!--           </div>
-
-        </div>.row
-
-      </div>
-</section> -->
 
 
