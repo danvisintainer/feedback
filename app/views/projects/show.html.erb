@@ -64,7 +64,12 @@
 			<div class="col-sm-8 col-sm-offset-2">
 				<div id="comment-count">
 					<h4 class="font-alt mb-0">
-						<a href="javascript:void(0);"><%= "#{@project.comments.count} comments" %></a>
+						<a href="javascript:void(0);">		
+						<% if @project.comments.count == 1 %>
+							<%= "#{@project.comments.count} comment" %>
+						<% else %>
+							<%= "#{@project.comments.count} comments" %>
+						<% end %></a>
 					</h4>
 				</div>
 				<hr class="divider-w mt-10 mb-20">
