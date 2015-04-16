@@ -52,6 +52,8 @@
 					    <%= f.hidden_field :project_id, :value => @project.id %>
 					    <%= f.hidden_field :user_id, :value => current_user.id %>
 	  				</div>
+	  				<br>
+	  				<br>
 					  <div class="actions">
 					    <%= f.submit "Leave Comment", class:'btn btn-g btn-round btn-block' %>
 					  </div>
@@ -72,9 +74,10 @@
 						<% end %></a>
 					</h4>
 				</div>
+				<br>
 				<hr class="divider-w mt-10 mb-20">
 				<div id="comments">
-					<%= render @project.comments %>
+					<%= render @project.comments.reverse %>
 				</div>
 			</div>
 		</div>

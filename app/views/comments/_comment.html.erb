@@ -1,8 +1,12 @@
-<div class="whole-comment">
+<!-- <div class="whole-comment"> -->
+<div>
+  <div class="project-user-comment-body.clearfix">
     <div class="project-user-comment-picture">
-       <%= link_to image_tag(comment.user.avatar_url, size: "24x24"), user_path(comment.user)  %>
+       <%= link_to image_tag(comment.user.avatar_url, size: "45x45"), user_path(comment.user)  %>
     </div>
-    <div class="project-user-comment-body">
-      <p><%= "#{comment.user.name}: #{comment.body}" %></p>
-    </div>
+      <p><strong><%= "#{comment.user.name}" %></strong> @ <%= "#{@project.comments.first.created_at.to_date.to_s(:long_ordinal)}"%><br><%=" #{comment.body}" %>
+  </div>
 </div>
+<br>
+
+<!-- </div> -->
