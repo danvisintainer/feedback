@@ -22,6 +22,13 @@ $(document).ready(function() {
     });
   });
 
+  $("#project-login-button").on('click', function(e) {
+    e.preventDefault();
+    $("#global-modal").modal({
+      keyboard: true
+    });
+  });
+
   $("#start-new-button").on('click', function(e) {
     e.preventDefault();
     $("#new-project-modal").modal({
