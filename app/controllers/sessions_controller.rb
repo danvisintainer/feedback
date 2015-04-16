@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = @user.id
 
-    redirect_to root_path
+    redirect_to projects_path
   end
 
   def destroy
