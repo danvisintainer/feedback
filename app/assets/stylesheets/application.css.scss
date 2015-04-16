@@ -39,10 +39,10 @@ section.user-page-module {
   margin-bottom: 40px;
 }
 
-div.whole-comment {
- padding-top: 18px;
+/*div.whole-comment {
+ 
  clear: both;
-}
+}*/
 
 @mixin vertical-align {
   position: relative;
@@ -55,19 +55,26 @@ div.whole-comment {
 div.project-user-comment-body {
   position: relative;
   top: 50%;
+  /*margin-left: 50px;*/
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  /*margin-top: 20px;*/
+  overflow: auto;
+  padding-top: 10px;
+  margin: 10px;
+  clear: both;
 }
 
 div.project-user-comment-picture {
   padding-right: 5px;
   float: left; 
   position: relative;
-  top: 50%;
+  /*top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  transform: translateY(-50%);*/
+
 }
 
 div.comment-input {
@@ -145,3 +152,13 @@ div.main {
 .btn:focus {
   outline: none;
 }
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
