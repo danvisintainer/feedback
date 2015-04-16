@@ -4,7 +4,7 @@ $(document).ready(function(){
   showMicVisualizer();
 
   // make wavesurfers on page load
-  $("div[id^=waveform-]").each(function(i, v) {
+  $("div[id^=wavesurfer-set-]").each(function(i, v) {
     // debugger;
     makeWavesurfer($(this));
   });
@@ -52,15 +52,15 @@ $(document).ready(function(){
 
 function makeWavesurfer(div) {
   var wavesurfer = Object.create(WaveSurfer);
+  var container = div.children().find(".wavesurfer-insert")[0];
 
-  // debugger;
   wavesurfer.init({
-    container: "#" + div.attr("id"),
+    container: container,
     waveColor: 'gray',
     progressColor: 'black'
   });
 
-  wavesurfer.load(div.attr("audio-source"));
+  wavesurfer.load(div.children().find(".wavesurfer-insert").attr('audio-source'));
 
   if (wavesurfer.enableDragSelection) {
         wavesurfer.enableDragSelection({
