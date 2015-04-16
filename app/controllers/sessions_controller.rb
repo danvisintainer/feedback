@@ -19,9 +19,7 @@ class SessionsController < ApplicationController
   def create_via_twitter
     session[:access_token] = request.env['omniauth.auth']['credentials']['token']
     session[:access_token_secret] = request.env['omniauth.auth']['credentials']['secret']
-
     twitter_user = client.user(include_entities: true)
-
 
     @user = User.find_or_create_by(twitter_username: twitter_user.screen_name)
     @user.name ||= twitter_user.name
@@ -31,7 +29,6 @@ class SessionsController < ApplicationController
     @user.save
 
     session[:user_id] = @user.id
-
     redirect_to projects_path
   end
 
