@@ -15,8 +15,18 @@ RSpec.describe User, type: :model do
     expect {User.new(:name => nil)}.to raise_error
   end
 
-  it "can have projects" do 
+  it "can have many projects" do 
     p = User.reflect_on_association(:projects)
+    p.macro.should == :has_many
+  end
+
+  it "can have many tracks" do 
+    p = User.reflect_on_association(:tracks)
+    p.macro.should == :has_many
+  end
+
+  it "can have many comments" do 
+    p = User.reflect_on_association(:comments)
     p.macro.should == :has_many
   end
 end
