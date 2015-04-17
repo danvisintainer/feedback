@@ -8,10 +8,22 @@ class TracksController < ApplicationController
       config.quality = 4
       config.bitrate = 192
     end
+
+    puts "Trimming WAV..."
+
+    current_time = (Time.now.to_f*100000).to_i.to_s
+
+    sox = Sox::Cmd.new
+    sox.add_input(params['data'].tempfile.to_path)
+    sox.set_output("tempaudio/sox-#{current_time}.wav")
+    sox.set_options(['trim', 0.1, 60])
+    sox.run
+
+    puts "Done.\n"
     
-    print "Converting to MP3..."
-    wave = WaveFile::Reader.new(params["data"].tempfile)
-    mp3_file = File.new("tempaudio/#{(Time.now.to_f*100000).to_i.to_s}.mp3", "w+")
+    puts "Converting to MP3..."
+    wave = WaveFile::Reader.new(File.open("tempaudio/sox-#{current_time}.wav"))
+    mp3_file = File.new("tempaudio/mp3-#{current_time}.mp3", "w+")
 
     File.open(mp3_file, "wb") do |file|
 
@@ -44,19 +56,19 @@ class TracksController < ApplicationController
 
     end
 
-    print "done."
+    puts "done."
 
-    print "Setting track to AWS..."
+    puts "Setting track to AWS..."
 
     @track = Track.create(audio: mp3_file)
-    print "done.\n"
+    puts "done.\n"
     @track.user = User.find(session[:user_id])
     @track.project = Project.find(params[:project_id])
     @track.save
 
-    print "Deleting file..."
+    puts "Deleting file..."
     File.delete(mp3_file.path)
-    print "done."
+    puts "done."
     
     respond_to do |f|
       f.js { }
