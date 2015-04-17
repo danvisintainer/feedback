@@ -16,7 +16,8 @@ class TracksController < ApplicationController
     sox = Sox::Cmd.new
     sox.add_input(params['data'].tempfile.to_path)
     sox.set_output("tempaudio/sox-#{current_time}.wav")
-    sox.set_options(['trim', 0.1, 60])
+    sox.set_effects(:trim => 0.05)
+
     sox.run
 
     puts "Done.\n"
