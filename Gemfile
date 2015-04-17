@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'ruby-sox'
 gem 'wavefile'
 gem 'lame'
 gem 'twitter'
