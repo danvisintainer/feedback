@@ -1,6 +1,13 @@
 $(document).ready(function() {
   $('#new-user-form').hide();
 
+  $("#getting-started-btn").on('click', function(e) {
+    e.preventDefault();
+    $("#getting-started-modal").modal({
+      keyboard: true
+    });
+  });
+
   $("#login-button").on('click', function(e) {
     e.preventDefault();
     $("#global-modal").modal({
