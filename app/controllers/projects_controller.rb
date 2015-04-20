@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    if @project.user.id == current_user.id
+    if project_owner?
       @project.update(completed: params[:completed])
       #reset InstrumetntNeed on completion of project
       if params[:completed] == "true"
@@ -56,8 +56,14 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    Project.destroy(params[:id])
-    redirect_to "/users/#{current_user.id}"
+    @project = Project.find(params[:id])
+    if project_owner?
+      @project.destroy
+      redirect_to "/users/#{current_user.id}"
+    else
+      flash[:error] = "Only the project's owner can delete it."
+      redirect_to projects_path(@project)
+    end
   end
 
   private
