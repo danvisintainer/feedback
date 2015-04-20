@@ -1,4 +1,4 @@
-<div class="col-sm-4">
+<div class="col-sm-6">
 	<div class="widget">
 		<h5 class="widget-title font-alt">Complete Project</h5>
 		<p class="not-completed-guide">A completed project is locked,<br>and can no longer be edited by others.</p>
@@ -13,7 +13,7 @@
 	</div>
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-6">
 	<div class="widget">
 		<h5 class="widget-title font-alt">Collaboration</h5>
 
@@ -37,18 +37,7 @@
 	<% end %>
 </div>
 		
-<div class="col-sm-4">
-	<div class="widget">
-		<h5 class="widget-title font-alt">Delete this project</h5>
 
-		<% if current_user && project_owner? %>
-		<p>
-			Deleting a project will also remove all of its recorded tracks. This can't be undone!
-			</p>
-	  <center><%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn btn btn-lg btn-danger btn-round', id: @project.id %></center>
-<% end %>
-	</div>
-</div>
 
 
 
