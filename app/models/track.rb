@@ -8,14 +8,13 @@ class Track < ActiveRecord::Base
   validates_attachment_content_type :audio, :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
 
 
- #Trim WAV file to account for latency
-
-   def self.current_time
+   #Trim WAV file to account for latency
+  def self.current_time
     (Time.now.to_f*100000).to_i.to_s
-   end
+  end
 
   def self.trim_wav(data, filename)
-    binding.pry
+    # binding.pry
     sox = Sox::Cmd.new
     sox.add_input(data.tempfile.to_path)
     sox.set_output("tempaudio/sox-#{filename}.wav")
@@ -66,6 +65,7 @@ class Track < ActiveRecord::Base
         file.write(vbr_frame)
       end
     end
+    mp3_file
   end
 
 end

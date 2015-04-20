@@ -1,15 +1,13 @@
 class TracksController < ApplicationController
   def create
-
-
     filename = Track.current_time
     
+    #Trim WAV file & convert to MP3
     Track.trim_wav(params['data'], filename)
     mp3_file = Track.convert_to_mp3(filename)
 
     #Use paperclip to upload to AWS
     @track = Track.create(audio: mp3_file)
-    puts "done.\n"
     @track.user = User.find(session[:user_id])
     @track.project = Project.find(params[:project_id])
     @track.save
