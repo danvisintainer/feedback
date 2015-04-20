@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
 
     if current_user
       @personalized_projects =  Project.joins(:instrument_need).where("#{current_user.primary_instrument} = '1'")
-      @open_projects.delete_if {|p| @personalized_projects.include?(p) }
+      # @open_projects.delete_if {|p| @personalized_projects.include?(p) }
     end 
   end
 
