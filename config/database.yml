@@ -11,11 +11,11 @@ default: &default
 
 development:
   <<: *default
-  database: ruby007project2_development
+  database: feedback_development
 test:
   <<: *default
-  database: ruby007project2_test
+  database: feedback_test
 
 production:
   <<: *default
-  database: ruby007project2_production
+  database: feedback_production
