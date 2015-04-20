@@ -61,12 +61,16 @@ function makeWavesurfer(div) {
   });
 
   wavesurfer.load(div.children().find(".wavesurfer-insert").attr('audio-source'));
+  
+  console.log("Seeking to beginning");
+
 
   if (wavesurfer.enableDragSelection) {
         wavesurfer.enableDragSelection({
             color: 'rgba(0, 255, 0, 0.1)'
         });
     }
+
 
   document.addEventListener('DOMContentLoaded', function () {
     var progressDiv = document.querySelector('#progress-bar');
@@ -88,7 +92,9 @@ function makeWavesurfer(div) {
   });
 
   div.children().find('.left-col').append($('<button/>', {
-    click: function () { wavesurfer.playPause(); }
+    click: function () { 
+      wavesurfer.seekTo(0);
+      wavesurfer.playPause(); }
   }));
 
   div.children().find('.left-col').append($('<button/>', {
@@ -96,21 +102,26 @@ function makeWavesurfer(div) {
   }));
 
   $(div).find("button").first().addClass("btn btn-border-d btn-round play");
-  $(div).find("button").first().append('<i class="fa fa-play"> / <i class="fa fa-pause">');
+  $(div).find("button").first().append('<i class="fa fa-play">');
   
   $(div).find("button").last().addClass("btn btn-border-d btn-round stop");
   $(div).find("button").last().append('<i class="fa fa-stop">');
 
+
 }
 
 function playAll() {
-  $.each($('.stop'), function(i, v) {
-    v.click();
-  });
 
-  $.each($('.play'), function(i, v) {
-    v.click();
-  });
+    $.each($('.stop'), function(i, v) {
+      v.click();
+    });
+
+
+
+    $.each($('.play'), function(i, v) {
+      v.click();
+    });
+  
 }
 
 function showMicVisualizer() {
