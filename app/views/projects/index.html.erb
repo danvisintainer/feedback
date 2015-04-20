@@ -78,6 +78,9 @@
                 </div>
               <% end %>
             <% end %>
+            <% if @project_iterator_count == 1 %>
+              </div>
+            <% end %>
 
     <% end %>
     
@@ -122,6 +125,9 @@
                 </div>
               <% end %>
             <% end %>
+            <% if @project_iterator_count == 1 %>
+              </div>
+            <% end %>
     <% end %>
 
     <% if !@completed_projects.empty? %>
@@ -164,6 +170,9 @@
                 <% @project_iterator_count = 0  %>
                 </div>
               <% end %>
+            <% end %>
+            <% if @project_iterator_count == 1 %>
+              </div>
             <% end %>
     <% end %>
 
