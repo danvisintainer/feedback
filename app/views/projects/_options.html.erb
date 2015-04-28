@@ -1,23 +1,36 @@
-<div class="col-sm-4">
+<div class="col-sm-3">
+	<div class="widget">
+		<h5 class="widget-title font-alt">Add Metronome Track</h5>
+		<p>Want a rhythm guide? Click on one of these buttons to add a metronome track to the project. You can always delete it later.</p>
+
+		<center>
+			<%= button_to "100BPM", "\#", method: 'patch', params: {completed: :true}, class: 'project-complete-btn btn btn-g btn-round btn-block' %><br>
+			<%= button_to "120BPM", "\#", method: 'patch', params: {completed: :true}, class: 'project-complete-btn btn btn-g btn-round btn-block' %><br>
+			<%= button_to "140BPM", "\#", method: 'patch', params: {completed: :true}, class: 'project-complete-btn btn btn-g btn-round btn-block' %><br>
+		</center>
+	</div>
+</div>
+
+<div class="col-sm-3">
 	<div class="widget">
 		<h5 class="widget-title font-alt">Complete Project</h5>
-		<p class="not-completed-guide">A completed project is locked,<br>and can no longer be edited by others.</p>
+		<p class="not-completed-guide">A completed project is locked, and can no longer be edited by others.</p>
 		<p class="is-completed-guide">You marked this project as completed.<br>To allow collaboration again, click this button!</p>
 	<% if !@project.completed %>
 		<!-- IF PROJECT IS NOT COMPLETED -->
-		<center><%= button_to "Mark project completed", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn btn btn-g btn-round btn-lg', id: @project.id, :form => { :id => "collab-btn" } %></center>
+		<center><%= button_to "Mark project completed", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn btn btn-g btn-round btn-block', id: @project.id, :form => { :id => "collab-btn" } %></center>
 	<% else %>
 		<!-- IF PROJECT IS COMPLETED -->
-		<center><%= button_to "Open project for collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn btn btn-g btn-round btn-lg', id: @project.id, :form => { :id => "collab-btn" } %></center>
+		<center><%= button_to "Open project for collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn btn btn-g btn-round btn-block', id: @project.id, :form => { :id => "collab-btn" } %></center>
 	<% end %>
 	</div>
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-3">
 	<div class="widget">
 		<h5 class="widget-title font-alt">Collaboration</h5>
 
-		<p class="not-completed-guide">Invite others to collaborate!</p>
+		<p class="not-completed-guide">Want some help? Invite others to collaborate!</p>
 		<p class="is-completed-guide">A project must be open for others to collaborate.</p>
 			
 		<div id="instrument-need-checkbox">
@@ -30,14 +43,14 @@
 				<li><%= f.check_box :saxophone %> <%= f.label :saxophone %></li>
 				<li><%= f.check_box :vocals %> <%= f.label :vocals %></li>
 				<li><%= f.hidden_field :project_id, :value => @project.id %></li>
-				<center><%= f.submit "Invite", class: "btn btn-g btn-round btn-lg" %></center>
+				<center><%= f.submit "Invite", class: "btn btn-g btn-round btn-block" %></center>
 			</ul>
 		</div>
 	</div>
 	<% end %>
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-3">
 	<div class="widget">
 		<h5 class="widget-title font-alt">Delete this project</h5>
 
@@ -45,7 +58,7 @@
 		<p>
 			Deleting a project will also remove all of its recorded tracks. This can't be undone!
 			</p>
-	  <center><%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn btn btn-lg btn-danger btn-round', id: @project.id %></center>
+	  <center><%= button_to "Delete this project", "/projects/#{@project.id}", method: 'delete', class: 'project-delete-btn btn btn-block btn-danger btn-round', id: @project.id %></center>
 <% end %>
 	</div>
 </div>
