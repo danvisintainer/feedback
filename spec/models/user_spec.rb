@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before(:each) {@user = User.new(:name => "Alex", :primary_instrument => "Drums")}
 
+  it "has a valid factory" do
+    FactoryGirl.create(:user).should be_valid
+  end
+
   it "has a name" do
    expect(@user.name).to eq("Alex")
   end
@@ -11,8 +15,12 @@ RSpec.describe User, type: :model do
    expect(@user.primary_instrument).to be_truthy
   end
 
-  it "is invalid without a name" do
-    expect {User.new(:name => nil)}.to raise_error
+  it "is invalid without a name or twitter_username" do
+    expect {User.new(:name => nil, :twitter_username => "testusername")}.should_not_be_valid
+  end
+
+   it "is valid with only a name or twitter_username" do
+    expect @user.to_not raise_error
   end
 
   it "has many projects" do 
