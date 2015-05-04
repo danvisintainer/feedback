@@ -3,9 +3,16 @@ $(document).ready(function() {
 
   // if the user's browser is Safari, call the warning modal
   if (navigator.userAgent.indexOf("Safari") > -1) {
-    $("#safari-warning-modal").modal({
-      keyboard: true
-    });
+    if (navigator.userAgent.indexOf('chrome') > -1) {
+      // chrome detected, do nothing
+    } else {
+      if (!sessionStorage.sawSafariWarning) {
+        sessionStorage.setItem("sawSafariWarning", true);
+        $("#safari-warning-modal").modal({
+          keyboard: true
+        });
+      } 
+    }
   }
 
   $("#getting-started-btn").on('click', function(e) {
