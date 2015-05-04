@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
   end
 
   it "has an avatar" do
-    expect(user.avatar_url)).to be_truthy
+    expect(user.avatar_url).to be_truthy
   end
 
   it "is invalid without an avatar" do
