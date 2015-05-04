@@ -1,6 +1,13 @@
 $(document).ready(function() {
   $('#new-user-form').hide();
 
+  // if the user's browser is Safari, call the warning modal
+  if (navigator.userAgent.indexOf("Safari") > -1) {
+    $("#safari-warning-modal").modal({
+      keyboard: true
+    });
+  }
+
   $("#getting-started-btn").on('click', function(e) {
     e.preventDefault();
     $("#getting-started-modal").modal({
