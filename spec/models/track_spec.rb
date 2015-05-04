@@ -31,6 +31,10 @@ RSpec.describe Track, type: :model do
       should validate_attachment_presence(:audio)
     end
 
+    it "is validates the audio file format" do
+      validate_attachment_content_type(:audio).allowing('audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio').rejecting('audio/wav')
+    end
+
   end
 
   context "Associations" do
