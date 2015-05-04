@@ -1,26 +1,40 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:each) {@user = User.new(:name => "Alex", :primary_instrument => "Drums")}
+  let(:user) { FactoryGirl.build(:user)}
 
   it "has a valid factory" do
     FactoryGirl.create(:user).should be_valid
   end
 
-  it "has a name" do
-   expect(@user.name).to eq("Alex")
+  it "can have a primary instrument" do
+    user.primary_instrument = "Drums"
+    expect(user.save).to eq(true)
   end
 
-  it "has a primary instrument" do
-   expect(@user.primary_instrument).to be_truthy
+  it "can be saved without a primary instrument" do
+    user.primary_instrument = nil
+    expect(user.save).to eq(true)
+  end
+
+  it "is valid with only a name and password" do
+    expect(user.update(:name => "Someone", :password => "something")).to eq(true)
   end
 
   it "is invalid without a name or twitter_username" do
-    expect {User.new(:name => nil, :twitter_username => "testusername")}.should_not_be_valid
+    expect(user.update(:name => nil, :twitter_username => nil)).to eq(false)
   end
 
-   it "is valid with only a name or twitter_username" do
-    expect @user.to_not raise_error
+  it "is valid with only a twitter_username" do
+    expect(user.update(:twitter_username => "test")).to eq(true)
+  end
+
+  it "has an avatar" do
+    expect(user.avatar_url)).to be_truthy
+  end
+
+  it "is invalid without an avatar" do
+    expect(user.update(:avatar_url => nil)).to eq(false)
   end
 
   it "has many projects" do 
