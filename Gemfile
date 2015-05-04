@@ -63,6 +63,7 @@ group :test, :development do
   gem 'guard-rspec', require: false
   gem 'thin'
   gem 'faker'
+  gem 'shoulda'
 end
 
 group :production do
