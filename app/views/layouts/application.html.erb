@@ -84,6 +84,28 @@
   </div>
 </div>
 
+<div class="modal fade" id="safari-warning-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title font-alt mb-0">Whoa there!</h4>
+      </div>
+      <div class="modal-body">
+      <p>
+        It looks like your web browser is <b>Safari</b>. That's great! Unfortunately, Safari doesn't seem to be fully compatible with Web Audio API yet. As a result, Feedback does not work properly in Safari.
+      </p>
+      <p>
+        We've found that Feedback works best with <a href="www.google.com/chrome/">Google Chrome.</a> Switch to that and then come back - we'll wait!
+      </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <%= yield %>
 
 </body>
