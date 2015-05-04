@@ -11,21 +11,21 @@ RSpec.describe User, type: :model do
    expect(@user.primary_instrument).to be_truthy
   end
 
-  it "can't be created without a name" do
+  it "is invalid without a name" do
     expect {User.new(:name => nil)}.to raise_error
   end
 
-  it "can have many projects" do 
+  it "has many projects" do 
     p = User.reflect_on_association(:projects)
     p.macro.should == :has_many
   end
 
-  it "can have many tracks" do 
+  it "has many tracks" do 
     p = User.reflect_on_association(:tracks)
     p.macro.should == :has_many
   end
 
-  it "can have many comments" do 
+  it "has many comments" do 
     p = User.reflect_on_association(:comments)
     p.macro.should == :has_many
   end
