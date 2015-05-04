@@ -2,8 +2,8 @@ $(document).ready(function() {
   $('#new-user-form').hide();
 
   // if the user's browser is Safari, call the warning modal
-  if (navigator.userAgent.indexOf("Safari") > -1) {
-    if (navigator.userAgent.indexOf('chrome') > -1) {
+  if (navigator.userAgent.indexOf('Safari') > -1) {
+    if (navigator.userAgent.indexOf('Chrome') > -1) {
       // chrome detected, do nothing
     } else {
       if (!sessionStorage.sawSafariWarning) {
