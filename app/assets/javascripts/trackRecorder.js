@@ -31,6 +31,7 @@ var navigator = window.navigator;
   function recorderStop() {
     mediaStream.stop();
     rec.stop();
+    $('.progress').css('visibility', 'visible');
 
     rec.exportWAV(function(e){
       rec.clear();
