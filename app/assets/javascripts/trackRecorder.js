@@ -57,7 +57,7 @@ var navigator = window.navigator;
           xhr.upload.addEventListener("progress", function(e){
             if (e.lengthComputable) {
               // current progress is set to the page here.
-              var percentComplete = (e.loaded / e.total) * 100;
+              var percentComplete = ((e.loaded / e.total) * 100) | 0;
 
               if (percentComplete === 100) {
                 $('.progress-bar').attr('aria-valuenow', percentComplete);
