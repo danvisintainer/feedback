@@ -50,12 +50,13 @@ var navigator = window.navigator;
         // a custom XHR request, to allow for track upload progress bars
         xhr: function() {
           var xhr = new window.XMLHttpRequest();
-          xhr.upload.addEventListener("progress", function(evt){
-            if (evt.lengthComputable) {
-              // current progress is set here.
-              var percentComplete = (evt.loaded / evt.total) * 100;
-
-              
+          xhr.upload.addEventListener("progress", function(e){
+            if (e.lengthComputable) {
+              // current progress is set to the page here.
+              var percentComplete = (e.loaded / e.total) * 100;
+              $('.progress-bar').attr('aria-valuenow', percentComplete);
+              $('.progress-bar').css('width', percentComplete + '%');
+              $('.progress-text').text(percentComplete);
             }
           }, false);
         return xhr;
