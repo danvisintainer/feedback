@@ -40,12 +40,26 @@ var navigator = window.navigator;
       fd.append('data', e);
       fd.append('project_id', gon.project_id);
       $.ajax({
-          type: 'POST',
-          url: '/tracks',
-          data: fd,
-          processData: false,
-          contentType: false,
-          dataType: "script"
+        type: 'POST',
+        url: '/tracks',
+        data: fd,
+        processData: false,
+        contentType: false,
+        dataType: "script",
+
+        // a custom XHR request, to allow for track upload progress bars
+        xhr: function() {
+          var xhr = new window.XMLHttpRequest();
+          xhr.upload.addEventListener("progress", function(evt){
+            if (evt.lengthComputable) {
+              // current progress is set here.
+              var percentComplete = (evt.loaded / evt.total) * 100;
+
+              
+            }
+          }, false);
+        return xhr;
+        }
       });
 
     });
