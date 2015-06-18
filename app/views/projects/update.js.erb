@@ -5,17 +5,21 @@ if (completed){
 
   $("#recorderStart").hide();
   $("#instrument-need-checkbox").hide();
+  $("#metronome-options").hide();
   $(".not-completed-guide").hide();
   $(".is-completed-guide").show();
+  $("#metronome-instructions").show();
   $button.val("Open project for collaboration");
   $button.siblings().last().val("false");
   $button.blur();
 } else if (completed === false) {
 
   $("#recorderStart").show();
+  $("#metronome-options").show();
   $("#instrument-need-checkbox").show();
   $(".not-completed-guide").show();
   $(".is-completed-guide").hide();
+  $("#metronome-instructions").hide();
   $button.val("Mark project completed");
   $button.siblings().last().val("true");
   $button.blur();

@@ -1,13 +1,17 @@
 <div class="col-sm-3">
 	<div class="widget">
 		<h5 class="widget-title font-alt">Add Metronome Track</h5>
-		<p>Want a rhythm guide? Click on one of these buttons to add a metronome track to the project. You can always delete it later.</p>
-
-		<center>
-			<%= button_to "90 BPM", "/tracks", method: 'post', params: {tempo: 90, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
-			<%= button_to "120 BPM", "/tracks", method: 'post', params: {tempo: 120, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
-			<%= button_to "140 BPM", "/tracks", method: 'post', params: {tempo: 140, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
-		</center>
+			<div id="metronome-options">
+				<p>Want a rhythm guide? Click on one of these buttons to add a metronome track to the project. You can always delete it later.</p>
+				<center>
+					<%= button_to "90 BPM", "/tracks", method: 'post', params: {tempo: 90, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
+					<%= button_to "120 BPM", "/tracks", method: 'post', params: {tempo: 120, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
+					<%= button_to "140 BPM", "/tracks", method: 'post', params: {tempo: 140, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
+				</center>
+			</div>
+			<div id="metronome-instructions">
+				<p>Open the project for collaboration to add a metronome track.</p>
+			</div>
 	</div>
 </div>
 
@@ -21,7 +25,7 @@
 		<center><%= button_to "Mark project completed", "/projects/#{@project.id}", method: 'patch', params: {completed: :true}, class: 'project-complete-btn btn btn-g btn-round btn-block', id: @project.id, :form => { :id => "collab-btn" } %></center>
 	<% else %>
 		<!-- IF PROJECT IS COMPLETED -->
-		<center><%= button_to "Open project for collaboration", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn btn btn-g btn-round btn-block', id: @project.id, :form => { :id => "collab-btn" } %></center>
+		<center><%= button_to "Open project", "/projects/#{@project.id}", method: 'patch', params: {completed: :false}, class: 'project-complete-btn btn btn-g btn-round btn-block', id: @project.id, :form => { :id => "collab-btn" } %></center>
 	<% end %>
 	</div>
 </div>

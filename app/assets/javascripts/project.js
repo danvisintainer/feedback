@@ -4,9 +4,11 @@ function completedCheck(){
 		$("#recorderStart").hide();
 		$("#instrument-need-checkbox").hide();
 	  $(".not-completed-guide").hide();
+	  $("#metronome-options").hide();
 	}
 	else {
 	  $(".is-completed-guide").hide();
+	  $("#metronome-instructions").hide();
 	}
 }
 
