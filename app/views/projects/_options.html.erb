@@ -4,9 +4,9 @@
 		<p>Want a rhythm guide? Click on one of these buttons to add a metronome track to the project. You can always delete it later.</p>
 
 		<center>
-			<%= button_to "90 BPM", "/tracks", method: 'post', params: {tempo: 90, project_id: @project.id}, class: 'project-complete-btn btn btn-g btn-round btn-block', :remote => true%><br>
-			<%= button_to "120 BPM", "/tracks", method: 'post', params: {tempo: 120, project_id: @project.id}, class: 'project-complete-btn btn btn-g btn-round btn-block', :remote => true%><br>
-			<%= button_to "140 BPM", "/tracks", method: 'post', params: {tempo: 140, project_id: @project.id}, class: 'project-complete-btn btn btn-g btn-round btn-block', :remote => true%><br>
+			<%= button_to "90 BPM", "/tracks", method: 'post', params: {tempo: 90, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
+			<%= button_to "120 BPM", "/tracks", method: 'post', params: {tempo: 120, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
+			<%= button_to "140 BPM", "/tracks", method: 'post', params: {tempo: 140, project_id: @project.id}, class: 'btn btn-g btn-round btn-block', :remote => true%><br>
 		</center>
 	</div>
 </div>
