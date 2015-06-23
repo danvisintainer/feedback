@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :projects
   resources :instrument_needs
 
+  get '/auth/soundcloud/new', to: 'sessions#new_via_soundcloud'
+  get '/auth/soundcloud/', to: 'sessions#create_via_soundcloud'
 
   get '/auth/twitter/callback', to: 'sessions#create_via_twitter', as: 'callback'
   get '/auth/failure', to: 'sessions#error', as: 'failure'

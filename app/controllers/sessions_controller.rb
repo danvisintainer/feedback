@@ -32,6 +32,25 @@ class SessionsController < ApplicationController
     redirect_to projects_path
   end
 
+  def new_via_soundcloud
+    # redirect user to authorize URL
+    redirect_to SOUNDCLOUD_CLIENT.authorize_url()
+  end
+
+  def create_via_soundcloud
+    # exchange authorization code for access token
+    code = params[:code]
+    access_token = SOUNDCLOUD_CLIENT.exchange_token(:code => code)
+        binding.pry
+    @user = User.find_or_create_by(soundcloud_token: access_token[:access_token])
+        # Password digest can't be blank so Twitter users still need content stored in the DB.
+    @user.password_digest ||= "no_password"
+    @user.save
+
+    session[:user_id] = @user.id
+    redirect_to projects_path
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to '/login'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414203111) do
+ActiveRecord::Schema.define(version: 20150623225431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150414203111) do
     t.datetime "avatar_updated_at"
     t.string   "avatar_url"
     t.string   "primary_instrument"
+    t.string   "soundcloud_token"
   end
 
   add_foreign_key "comments", "projects"

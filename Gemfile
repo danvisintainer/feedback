@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
+# ruby '2.2.1'
+gem 'soundcloud'
 gem 'ruby-sox'
 gem 'wavefile'
-gem 'lame'
+# gem 'lame'
 gem 'twitter'
 gem 'omniauth'
 gem 'omniauth-twitter'
@@ -12,7 +14,6 @@ gem 'bcrypt'
 gem 'rails', '4.2.0'
 gem 'figaro'
 gem 'aws-sdk', '< 2.0'
-gem 'gon'
 gem "paperclip", "~> 4.2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

@@ -61,6 +61,10 @@ $(document).ready(function() {
     window.location = '/auth/twitter';
   });
 
+  $("#soundcloud-log-in-button").on('click', function(e) {
+    window.location = '/auth/soundcloud/new';
+  });
+
   $("button#switch-to-sign-up-button").on('click', function(e) {
     $('div#log-in-form').hide();
     $('div#new-user-form').fadeIn(500);
