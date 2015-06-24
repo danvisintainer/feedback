@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-# ruby '2.2.1'
 gem 'soundcloud'
 gem 'ruby-sox'
 gem 'wavefile'
-# gem 'lame'
+gem 'lame'
 gem 'twitter'
 gem 'omniauth'
 gem 'omniauth-twitter'
