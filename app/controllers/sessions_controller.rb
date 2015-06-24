@@ -41,12 +41,16 @@ class SessionsController < ApplicationController
     # exchange authorization code for access token
     code = params[:code]
     access_token = SOUNDCLOUD_CLIENT.exchange_token(:code => code)
-    @user = User.find_or_create_by(soundcloud_token: access_token[:access_token])
+
     # create client object with access token
     client = Soundcloud.new(:access_token => access_token[:access_token])
 
+
     # make an authenticated call
     soundcloud_user = client.get('/me')
+
+    @user = User.find_or_create_by(soundcloud_id: soundcloud_user[:id])
+    @user.soundcloud_token = access_token[:access_token]
 
     # Password digest can't be blank so Soundcloud users still need an empty string stored in the DB.
     @user.password_digest ||= "no_password"
