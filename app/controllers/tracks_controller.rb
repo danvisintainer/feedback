@@ -49,4 +49,27 @@ class TracksController < ApplicationController
     @tracks = Track.all
   end
 
+  def soundcloud_upload
+    @track = Track.find(params[:id])
+    # create a client object with access token
+    client = Soundcloud.new(:access_token => current_user.soundcloud_token)
+    # upload an audio file
+    @upload = client.post('/tracks', :track => {
+      :title => "#{current_user.name}'s Track",
+      :asset_data => open("http:" + @track.audio.url)
+    })
+
+    if @upload
+      @track.uploaded = true
+      @track.soundcloud_id = @upload[:id]
+      @track.soundcloud_url = "soundcloud.com/#{@upload[:user][:permalink]}/#{@upload[:permalink]}"
+      @track.save
+    end
+
+    binding.pry
+    respond_to do |f|
+      f.js { }
+    end
+  end
+
 end

@@ -22,6 +22,14 @@
         <%= link_to content_tag(:i, nil, class: 'fa fa-trash'), nil, class: 'track-delete-btn btn btn-border-d btn-round', id: track.id %>
 
       <% end %>
+
+        <% if current_user.soundcloud_id? %>
+          <%= form_tag("/soundcloud_upload", method: "post", class: "soundcloud-upload-form", id: "soundcloud-upload-form-#{track.id}") do %>
+          <%= hidden_field_tag(:track_id, track.id, :id=>"upload-track-#{track.id}", :class => "upload-track") %>
+          <%= submit_tag("Upload to Soundcloud") %>
+        <% end %>
+
+      <% end %>
       
     </div>
     <!--Displays avatar of the user who uploaded the track-->

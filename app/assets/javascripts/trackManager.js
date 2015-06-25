@@ -1,5 +1,19 @@
 $(document).ready(function(){
 
+  //make Soundcloud Upload Listener
+  $('.soundcloud-upload-form').on('click', function(e)
+      {
+      e.preventDefault();
+      e.stopPropagation();
+      var form = $(this);
+      $.ajax({
+        url: form.attr('action'),
+        method: 'post',
+        data: {id: form.children('.upload-track').val()},
+        dataType: 'script'
+        });
+      });
+
   // make Microphone visualizer
   showMicVisualizer();
 
@@ -144,3 +158,4 @@ function showMicVisualizer() {
   
   microphone.start();
 }
+

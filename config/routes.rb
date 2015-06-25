@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/users/:id' => 'users#show', :as => :user
   patch '/users/:id' => 'users#update'
 
+  post '/soundcloud_upload' => 'tracks#soundcloud_upload'
+
   resources :tracks
   resources :projects
   resources :instrument_needs
