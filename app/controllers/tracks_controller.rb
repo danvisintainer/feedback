@@ -65,8 +65,7 @@ class TracksController < ApplicationController
       @track.soundcloud_url = "soundcloud.com/#{@upload[:user][:permalink]}/#{@upload[:permalink]}"
       @track.save
     end
-
-    binding.pry
+    
     respond_to do |f|
       f.js { }
     end

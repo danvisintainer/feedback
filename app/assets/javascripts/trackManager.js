@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   //make Soundcloud Upload Listener
-  $('.soundcloud-upload-form').on('click', function(e)
+  $('body').on('click', 'form.soundcloud-upload-form', function(e)
       {
       e.preventDefault();
       e.stopPropagation();
