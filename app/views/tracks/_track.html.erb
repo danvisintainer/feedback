@@ -13,7 +13,24 @@
         <%= link_to image_tag(track.user.avatar_url, size: "32x32"), user_path(track.user)  %>
         Track by <%= track.user.name %>
       </center>
+      <center>
+        <% if current_user.soundcloud_id? %>
+
+          <% if track.uploaded %>
+            <a href='https://<%= track.soundcloud_url %>' target="_blank" class="listen-on-soundcloud">Listen On Soundcloud</a>
+
+          <% else %>
+
+          <%= form_tag("/soundcloud_upload", method: "post", class: "soundcloud-upload-form", id: "soundcloud-upload-form-#{track.id}") do %>
+          <%= hidden_field_tag(:id, track.id, :id=>"upload-track-#{track.id}", :class => "upload-track") %>
+          <%= submit_tag("Upload to Soundcloud", {:class => 'btn'}) %>
+          <% end %>
+          
+        <% end %>
+      <% end %>
+      </center>
     </div>
+
     <div class="col-sm-4 right-col">
       <% if current_user.nil? %>
 
@@ -23,17 +40,7 @@
 
       <% end %>
 
-        <% if current_user.soundcloud_id? %>
-          <% if track.uploaded %>
-            <a href='https://<%= track.soundcloud_url %>' target="_blank">Listen On Soundcloud</a>
-          <% else %>
-          <%= form_tag("/soundcloud_upload", method: "post", class: "soundcloud-upload-form", id: "soundcloud-upload-form-#{track.id}") do %>
-          <%= hidden_field_tag(:id, track.id, :id=>"upload-track-#{track.id}", :class => "upload-track") %>
-          <%= submit_tag("Upload to Soundcloud") %>
-          <% end %>
-        <% end %>
 
-      <% end %>
       
     </div>
     <!--Displays avatar of the user who uploaded the track-->

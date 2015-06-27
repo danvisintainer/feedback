@@ -55,7 +55,7 @@ class TracksController < ApplicationController
     client = Soundcloud.new(:access_token => current_user.soundcloud_token)
     # upload an audio file
     @upload = client.post('/tracks', :track => {
-      :title => "#{current_user.name}'s Track",
+      :title => "Track from the #{@track.project.name} project on Feedback",
       :asset_data => open("http:" + @track.audio.url)
     })
 
