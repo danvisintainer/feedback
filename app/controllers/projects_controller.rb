@@ -67,6 +67,9 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def soundcloud_project_upload
+  end
+
   private
   def project_params
     params.require(:project).permit(:name, :description)

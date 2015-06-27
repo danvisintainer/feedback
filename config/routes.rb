@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   patch '/users/:id' => 'users#update'
 
   post '/soundcloud_upload' => 'tracks#soundcloud_upload'
+  post '/soundcloud_project_upload' => 'projects#soundcloud_project_upload'
 
   resources :tracks
   resources :projects
-  resources :instrument_needs
+  resources :instrument_needs, only: [:update]
 
   get '/auth/soundcloud/new', to: 'sessions#new_via_soundcloud'
   get '/auth/soundcloud/', to: 'sessions#create_via_soundcloud'
