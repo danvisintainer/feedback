@@ -68,6 +68,30 @@ class ProjectsController < ApplicationController
   end
 
   def soundcloud_project_upload
+    @project = Project.find(params[:id])
+    # create a client object with access token
+    client = Soundcloud.new(:access_token => current_user.soundcloud_token)
+
+    sox_command = "sox -m "
+    @project.tracks.collect do |track|
+      #remove query string from url
+      question_mark_index = track.audio.url.index('?')
+      track_url = "http:" + track.audio.url.slice(0..(question_mark_index-1))
+      tempfile = open(track_url)
+      sox_command = sox_command + '-t mp3 ' + tempfile.path + " "
+    end
+
+    sox_command += "merged_project.mp3"
+
+    #use sox to merge tracks
+    system sox_command
+
+    # upload an audio file
+    @upload = client.post('/tracks', :track => {
+      :title => "#{@project.name} created using Feedback",
+      :asset_data => open('merged_project.mp3')
+    })
+
   end
 
   private
