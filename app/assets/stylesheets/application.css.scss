@@ -21,11 +21,15 @@
 /*@import "bootstrap";*/
 /* Some Style from the Bootstrap Default Theme */
 
-.soundcloud-upload-form{
+#soundcloud-project_upload-form {
+  padding-bottom: 40px;
+}
+
+.soundcloud-upload-form {
   padding-top: 10px;
 }
 
-a.listen-on-soundcloud{
+a.listen-on-soundcloud {
   display: block;
 }
 
