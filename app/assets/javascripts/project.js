@@ -26,4 +26,17 @@ $(document).ready(function(){
 		});
 	});
 
+	$('#soundcloud-project-upload-form').on('submit', function(e)
+	  {
+	  e.preventDefault();
+	  e.stopPropagation();
+	  var form = $(this);
+	  $.ajax({
+	    url: form.attr('action'),
+	    method: 'post',
+	    data: {id: form.children('#upload-project').val()},
+	    dataType: 'script'
+	    });
+	  });
+
 });

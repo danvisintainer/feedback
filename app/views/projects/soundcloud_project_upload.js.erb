@@ -1,0 +1,3 @@
+<% if @project.uploaded %>
+	$("#soundcloud-project-upload-form").replaceWith("<a href='https://<%= @project.soundcloud_url %>' target='_blank' id='project-listen-on-soundcloud'>Listen On Soundcloud</a>")
+<% end %>

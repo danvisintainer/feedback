@@ -68,6 +68,7 @@ class ProjectsController < ApplicationController
   end
 
   def soundcloud_project_upload
+    binding.pry
     @project = Project.find(params[:id])
     # create a client object with access token
     client = Soundcloud.new(:access_token => current_user.soundcloud_token)
@@ -87,10 +88,21 @@ class ProjectsController < ApplicationController
     system sox_command
 
     # upload an audio file
-    @upload = client.post('/tracks', :track => {
+    @upload = client.post('/tracks',:track => {
       :title => "#{@project.name} created using Feedback",
       :asset_data => open('merged_project.mp3')
     })
+
+    if @upload
+      @project.uploaded = true
+      @project.soundcloud_id = @upload[:id]
+      @project.soundcloud_url = "soundcloud.com/#{@upload[:user][:permalink]}/#{@upload[:permalink]}"
+      @project.save
+    end
+    
+    respond_to do |f|
+      f.js { }
+    end
 
   end
 
